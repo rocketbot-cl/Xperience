@@ -20,8 +20,8 @@ Inicie sesión en NOC utilizando unda de las opciones, API Key, archivo noc.ini 
 2. Obtener cola de trabajo de Forms  
 Obtiene las colas de trabajo
 
-3. Obtener datos de Forms  
-Obtener datos de formulario de la cola de trabajo
+3. Obtener todos los datos de Formularios  
+Obtener todos los datos de formularios de la cola de trabajo. El comando devuelve los datos en formato de diccionario
 
 4. Descarga archivo  
 Descarga un archivo subido a un formulario

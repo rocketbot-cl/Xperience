@@ -7,7 +7,7 @@
     "pr": "Modulo para trabalhar com formulários do Rocketbot Xperience"
   },
   "disclaimer": "THERE IS NO WARRANTY FOR THE PROGRAM, TO THE EXTENT PERMITTED BY APPLICABLE LAW. EXCEPT WHEN OTHERWISE STATED IN WRITING THE COPYRIGHT HOLDERS AND/OR OTHER PARTIES PROVIDE THE PROGRAM “AS IS” WITHOUT WARRANTY OF ANY KIND, EITHER EXPRESSED OR IMPLIED, INCLUDING, BUT NOT LIMITED TO, THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE. THE ENTIRE RISK AS TO THE QUALITY AND PERFORMANCE OF THE PROGRAM IS WITH YOU. SHOULD THE PROGRAM PROVE DEFECTIVE, YOU ASSUME THE COST OF ALL NECESSARY SERVICING, REPAIR OR CORRECTION.",
-  "version": "1.0.0",
+  "version": "2.0.0",
   "license": "MIT",
   "homepage": "http://rocketbot.com",
   "linux": true,
@@ -201,20 +201,20 @@
     },
     {
       "en": {
-        "title": "Get Form queue data",
-        "description": "Get Form data from queue",
+        "title": "Get all Form queue data",
+        "description": "Get all Form data from queue. The command returns the data in dictionary format",
         "title_options": "Select Option",
         "options": null
       },
       "es": {
-        "title": "Obtener datos de Forms",
-        "description": "Obtener datos de formulario de la cola de trabajo",
+        "title": "Obtener todos los datos de Formularios",
+        "description": "Obtener todos los datos de formularios de la cola de trabajo. El comando devuelve los datos en formato de diccionario",
         "title_options": "Seleccione una opción",
         "options": null
       },
       "pr": {
-        "title": "Obter dados de Formulários",
-        "description": "Obter dados de formulário da fila de trabalho",
+        "title": "Obter todos os dados de formulário",
+        "description": "Obter todos os dados de formulário da fila de trabalho. O comando retorna os dados no formato de dicionário",
         "title_options": "Selecione uma opção",
         "options": null
       },

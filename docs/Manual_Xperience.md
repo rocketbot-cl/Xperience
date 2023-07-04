@@ -31,9 +31,9 @@ Get queues
 |Form Token|Form Token|8YWUW8AXAV3UPNKY|
 |Set to var|Variable to store result without {}|var|
 
-### Get Form queue data
+### Get all Form queue data
   
-Get Form data from queue
+Get all Form data from queue. The command returns the data in dictionary format
 |Parameters|Description|example|
 | --- | --- | --- |
 |Queue ID|Queue ID|1|

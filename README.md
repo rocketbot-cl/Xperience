@@ -20,8 +20,8 @@ Login to NOC using one of the options, API Key, noc.ini file, or credentials.
 2. Get Form queue  
 Get queues
 
-3. Get Form queue data  
-Get Form data from queue
+3. Get all Form queue data  
+Get all Form data from queue. The command returns the data in dictionary format
 
 4. Download Form File  
 Download a file uploaded in a form
