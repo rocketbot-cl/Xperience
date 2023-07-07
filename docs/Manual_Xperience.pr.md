@@ -31,9 +31,9 @@ Obtém as filas de trabalho
 |Form Token|Form Token|8YWUW8AXAV3UPNKY|
 |Definir como variável|Variável para guardar resultado sem {}|var|
 
-### Obter dados de Formulários
+### Obter todos os dados de formulário
   
-Obter dados de formulário da fila de trabalho
+Obter todos os dados de formulário da fila de trabalho. O comando retorna os dados no formato de dicionário
 |Parâmetros|Descrição|exemplo|
 | --- | --- | --- |
 |ID da fila de trabalho|ID da fila de trabalho|1|

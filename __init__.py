@@ -112,12 +112,13 @@ if module == 'GetForm':
 if module == 'GetFormData':
     id_ = GetParams('id_')
     token_ = GetParams('token_')
+    result = GetParams('result')
 
     try:
         res = requests.post(configFormObject.server_ + '/api/formData/getQueue/' + id_ + '/' + token_,
                             headers={'Authorization': "Bearer " + configFormObject.token}, proxies=configFormObject.proxies)
         if res.status_code == 200:
-            tmp = []
+            result_dict = {}
             res = res.json()
 
             if 'data' in res:
@@ -128,9 +129,11 @@ if module == 'GetFormData':
                     SetVar('xperience', res['data']['xperience'])
                 data = json.loads(res['data']['data'])
                 for attr, value in data.items():
+                    print("attr:" + attr + " value:" + value)
                     if attr == 'file':
                         value = value.split("/")[-1]
-                    SetVar(attr, value)
+                    result_dict[attr] = value
+            SetVar(result, result_dict)
         else:
             raise Exception(res.json()['message'])
 

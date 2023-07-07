@@ -31,9 +31,9 @@ Obtiene las colas de trabajo
 |Form Token|Form Token|8YWUW8AXAV3UPNKY|
 |Asignar a variable|Variable donde guardar resultado sin {}|var|
 
-### Obtener datos de Forms
+### Obtener todos los datos de Formularios
   
-Obtener datos de formulario de la cola de trabajo
+Obtener todos los datos de formularios de la cola de trabajo. El comando devuelve los datos en formato de diccionario
 |Parámetros|Descripción|ejemplo|
 | --- | --- | --- |
 |ID cola de trabajo|ID de la cola de trabajo|1|
