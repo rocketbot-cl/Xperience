@@ -5,6 +5,7 @@ import configparser
 import json
 import platform
 import requests
+import traceback
 import os
 
 base_path = tmp_global_obj["basepath"]
@@ -31,45 +32,28 @@ if module == 'Login':
     path = iframe.get("path_ini", GetParams("ruta_"))
     path_ini_assetnoc_ = path
     # proxies = GetParams("proxies")
+    try:
+        if password and username:
+            try:
+                orchestrator_service = OrchestatorCommon(server=server_, user=username, password=password, ini_path=path, apikey=api_key)
+                if server_ is None:
+                        server_ = orchestrator_service.server
+                token = orchestrator_service.get_authorization_token()
+                headers = {'content-type': 'application/x-www-form-urlencoded','Authorization': 'Bearer {token}'.format(token=token)}
+                res = requests.post(server_ + '/api/formData/all',
+                                    headers=headers)
+                configFormObject = ConfigObject(token, orchestrator_service.server, orchestrator_service.user, orchestrator_service.password, api_key, None)
+                conx = True
+                SetVar(var_, conx) #type: ignore
 
-    if password and username:
-        try:
-            orchestrator_service = OrchestatorCommon(server=server_, user=username, password=password, ini_path=path, apikey=api_key)
-            if server_ is None:
-                    server_ = orchestrator_service.server
-            token = orchestrator_service.get_authorization_token()
-            headers = {'content-type': 'application/x-www-form-urlencoded','Authorization': 'Bearer {token}'.format(token=token)}
-            res = requests.post(server_ + '/api/formData/all',
-                                headers=headers)
-            configFormObject = ConfigObject(token, orchestrator_service.server, orchestrator_service.user, orchestrator_service.password, api_key, None)
-            conx = True
-            SetVar(var_, conx) #type: ignore
+            except:
+                if res.status_code != 200:
+                    exc = res.json()['message'] if res.json()['message'] else "Password o E-mail incorrectos"
+                    raise Exception(exc)
+                raise Exception("Password o E-mail incorrectos")
 
-        except:
-            if res.status_code != 200:
-                exc = res.json()['message'] if res.json()['message'] else "Password o E-mail incorrectos"
-                raise Exception(exc)
-            raise Exception("Password o E-mail incorrectos")
-
-    elif api_key:
-                    
-        orchestrator_service = OrchestatorCommon(server=server_, user=username, password=password, ini_path=path, apikey=api_key)
-        if server_ is None:
-            server_ = orchestrator_service.server
-        token = orchestrator_service.get_authorization_token()
-        headers = {'content-type': 'application/x-www-form-urlencoded','Authorization': 'Bearer {token}'.format(token=token)}
-        res = requests.post(server_ + '/api/formData/all',
-                            headers=headers)
-        configFormObject = ConfigObject(token, orchestrator_service.server, orchestrator_service.user, orchestrator_service.password, api_key, None)
-        if res.status_code != 200:
-            exc = res.json()['message'] if res.json()['message'] else "El API Key es incorrecto"
-            raise Exception(exc)
-        else:
-            conx = True
-        SetVar(var_, conx)
-
-    elif path:
-        try:
+        elif api_key:
+                        
             orchestrator_service = OrchestatorCommon(server=server_, user=username, password=password, ini_path=path, apikey=api_key)
             if server_ is None:
                 server_ = orchestrator_service.server
@@ -78,14 +62,35 @@ if module == 'Login':
             res = requests.post(server_ + '/api/formData/all',
                                 headers=headers)
             configFormObject = ConfigObject(token, orchestrator_service.server, orchestrator_service.user, orchestrator_service.password, api_key, None)
-            conx = True
-            SetVar(var_, conx)
-        except:
             if res.status_code != 200:
-                exc = res.json()['message'] if res.json()['message'] else "Password o E-mail incorrectos"
+                exc = res.json()['message'] if res.json()['message'] else "El API Key es incorrecto"
                 raise Exception(exc)
-            raise Exception("Password o E-mail incorrectos")
+            else:
+                conx = True
+            SetVar(var_, conx)
 
+        elif path:
+            try:
+                orchestrator_service = OrchestatorCommon(server=server_, user=username, password=password, ini_path=path, apikey=api_key)
+                if server_ is None:
+                    server_ = orchestrator_service.server
+                token = orchestrator_service.get_authorization_token()
+                headers = {'content-type': 'application/x-www-form-urlencoded','Authorization': 'Bearer {token}'.format(token=token)}
+                res = requests.post(server_ + '/api/formData/all',
+                                    headers=headers)
+                configFormObject = ConfigObject(token, orchestrator_service.server, orchestrator_service.user, orchestrator_service.password, api_key, None)
+                conx = True
+                SetVar(var_, conx)
+            except:
+                if res.status_code != 200:
+                    exc = res.json()['message'] if res.json()['message'] else "Password o E-mail incorrectos"
+                    raise Exception(exc)
+                raise Exception("Password o E-mail incorrectos")
+    except Exception as e:
+        traceback.print_exc()
+        PrintException()
+        raise e
+    
 if module == 'GetForm':
     token_ = GetParams('token')
     var_ = GetParams('result')
