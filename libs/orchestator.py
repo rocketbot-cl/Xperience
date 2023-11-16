@@ -73,9 +73,10 @@ class OrchestatorCommon:
 
         self.instance = config.get('USER', 'key')
         self.server = config.get('NOC', 'server')
+        
         try:
             self.apikey = config.get('USER', 'apiKey')
-        except ValueError:
+        except:
             pass
 
 
