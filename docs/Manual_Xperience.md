@@ -1,9 +1,11 @@
+
+
+
+
 # Rocketbot Xperience
   
 Module to work with forms of Rocketbot Xperience  
 
-*Read this in other languages: [English](Manual_Xperience.md), [Português](Manual_Xperience.pr.md), [Español](Manual_Xperience.es.md)*
-  
 ![banner](imgs/Banner_Xperience.jpg)
 ## How to install this module
   
@@ -31,9 +33,9 @@ Get queues
 |Form Token|Form Token|8YWUW8AXAV3UPNKY|
 |Set to var|Variable to store result without {}|var|
 
-### Get all Form queue data
+### Get Form queue data
   
-Get all Form data from queue. The command returns the data in dictionary format
+Get Form data from queue
 |Parameters|Description|example|
 | --- | --- | --- |
 |Queue ID|Queue ID|1|
@@ -65,3 +67,12 @@ Returns a message to the Xperience form
 | --- | --- | --- |
 |Xperience Token|Xperience Token|{xperience}|
 |Message to return|Message to return|This is a message|
+
+### Send a file to Xperience
+  
+Send a file whenever the Form's SEND API option is active
+|Parameters|Description|example|
+| --- | --- | --- |
+|Xperience Token|Token {xperience} that is generated with the 'Get data from Form' command|{xperience}|
+|File to upload|File path to send to the orchestrator|C:/Users/pc/Downloads/img.png|
+|Set to var|Var where the result will be saved|variable|

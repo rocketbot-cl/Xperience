@@ -1,9 +1,11 @@
+
+
+
+
 # Rocketbot Xperience
   
 Modulo para trabalhar com formulários do Rocketbot Xperience  
 
-*Read this in other languages: [English](Manual_Xperience.md), [Português](Manual_Xperience.pr.md), [Español](Manual_Xperience.es.md)*
-  
 ![banner](imgs/Banner_Xperience.jpg)
 ## Como instalar este módulo
   
@@ -31,9 +33,9 @@ Obtém as filas de trabalho
 |Form Token|Form Token|8YWUW8AXAV3UPNKY|
 |Definir como variável|Variável para guardar resultado sem {}|var|
 
-### Obter todos os dados de formulário
+### Obter dados de Formulários
   
-Obter todos os dados de formulário da fila de trabalho. O comando retorna os dados no formato de dicionário
+Obter dados de formulário da fila de trabalho
 |Parâmetros|Descrição|exemplo|
 | --- | --- | --- |
 |ID da fila de trabalho|ID da fila de trabalho|1|
@@ -65,3 +67,12 @@ Returns a message to the Xperience form
 | --- | --- | --- |
 |Xperience Token|Xperience Token|{xperience}|
 |Message to return|Message to return|This is a message|
+
+### Envie um arquivo para o Xperience
+  
+Enviar um arquivo sempre que a opção SEND API do formulário estiver ativa
+|Parâmetros|Descrição|exemplo|
+| --- | --- | --- |
+|Xperience Token|Token {xperience} gerado com o comando 'Obter dados do formulário'|{xperience}|
+|Arquivo para carregar|Caminho do arquivo a ser enviado ao orquestrador|C:/Users/pc/Downloads/img.png|
+|Atribuir a variável|Nome da variável onde o resultado será salvo|variable|

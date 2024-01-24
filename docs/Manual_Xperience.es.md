@@ -1,9 +1,11 @@
+
+
+
+
 # Rocketbot Xperience
   
 Módulo para trabajar con formularios de Rocketbot Xperience  
 
-*Read this in other languages: [English](Manual_Xperience.md), [Português](Manual_Xperience.pr.md), [Español](Manual_Xperience.es.md)*
-  
 ![banner](imgs/Banner_Xperience.jpg)
 ## Como instalar este módulo
   
@@ -31,9 +33,9 @@ Obtiene las colas de trabajo
 |Form Token|Form Token|8YWUW8AXAV3UPNKY|
 |Asignar a variable|Variable donde guardar resultado sin {}|var|
 
-### Obtener todos los datos de Formularios
+### Obtener datos de Forms
   
-Obtener todos los datos de formularios de la cola de trabajo. El comando devuelve los datos en formato de diccionario
+Obtener datos de formulario de la cola de trabajo
 |Parámetros|Descripción|ejemplo|
 | --- | --- | --- |
 |ID cola de trabajo|ID de la cola de trabajo|1|
@@ -65,3 +67,12 @@ Devuelve un mensaje al formulario Xperience
 | --- | --- | --- |
 |Token Xperience|Token de Xperience|{xperience}|
 |Mensaje a devolver|Mensaje a devolver|Este es un mensaje|
+
+### Envía un archivo a Xperience
+  
+Envía un archivo siempre que esté activa la opción SEND API del Form
+|Parámetros|Descripción|ejemplo|
+| --- | --- | --- |
+|Token Xperience|Token {xperience} que se genera con el comando 'Obtener datos del Form'|{xperience}|
+|Archivo a cargar|Ruta del archivo a enviar al orquestador|C:/Users/pc/Downloads/img.png|
+|Asignar a variable|Nombre de variable donde se guardara el resultado|variable|

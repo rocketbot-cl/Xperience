@@ -1,8 +1,11 @@
+
+
+
+
 # Rocketbot Xperience
   
 Modulo para trabalhar com formulários do Rocketbot Xperience  
 
-*Read this in other languages: [English](README.md), [Português](README.pr.md), [Español](README.es.md)*
 
 ## Como instalar este módulo
   
@@ -20,8 +23,8 @@ Faça login no NOC usando uma das opções, arquivo noc.ini, API Key ou credenci
 2. Obter fila de trabalho de Formulários  
 Obtém as filas de trabalho
 
-3. Obter todos os dados de formulário  
-Obter todos os dados de formulário da fila de trabalho. O comando retorna os dados no formato de dicionário
+3. Obter dados de Formulários  
+Obter dados de formulário da fila de trabalho
 
 4. Baixar arquivo  
 Baixe um arquivo enviado em um formulário
@@ -30,7 +33,10 @@ Baixe um arquivo enviado em um formulário
 Mudar o estado da fila
 
 6. Return Message to Xperience  
-Returns a message to the Xperience form  
+Returns a message to the Xperience form
+
+7. Envie um arquivo para o Xperience  
+Enviar um arquivo sempre que a opção SEND API do formulário estiver ativa  
 
 
 

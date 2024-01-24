@@ -231,3 +231,35 @@ if module == "setXperience":
     except Exception as e:
         PrintException()
         raise e
+
+if module == "SendFile":
+    path = GetParams('path')
+    xperience = GetParams('xperience')
+    res = GetParams('res')
+
+    try:
+        if not path:
+            raise Exception("No file to upload provided")
+        
+        data = {"xperience": xperience}
+
+        with open (path, 'rb') as file:
+            files = {'document': file}
+
+            r = requests.post(configFormObject.server_ + '/api/form/extraFile', files=files,
+                            headers={'Authorization': "Bearer " + configFormObject.token}, data=data,
+                            proxies=configFormObject.proxies)
+            
+            r = r.json()
+
+            if not r.get('success'):
+                raise Exception(r.get('message', ''))
+            
+            token = r.get('data')
+
+            SetVar(res, token)
+
+    except Exception as e:
+        PrintException()
+        SetVar(res, False)
+        raise e
