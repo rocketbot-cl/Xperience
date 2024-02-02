@@ -1,8 +1,11 @@
+
+
+
+
 # Rocketbot Xperience
   
 Módulo para trabajar con formularios de Rocketbot Xperience  
 
-*Read this in other languages: [English](README.md), [Português](README.pr.md), [Español](README.es.md)*
 
 ## Como instalar este módulo
   
@@ -30,7 +33,10 @@ Descarga un archivo subido a un formulario
 Cambia el estado de la cola
 
 6. Devolver Mensaje a Xperience  
-Devuelve un mensaje al formulario Xperience  
+Devuelve un mensaje al formulario Xperience
+
+7. Envía un archivo a Xperience  
+Envía un archivo siempre que esté activa la opción SEND API del Form  
 
 
 
