@@ -262,6 +262,27 @@
             "css": "col-md-6"
           },
           {
+            "type": "checkbox",
+            "placeholder": {
+              "es": "True",
+              "en": "True",
+              "pr": "True"
+            },
+            "description": {
+              "en": "Se asignará el resultado a la(s) variable(s) que tengan el mismo nombre",
+              "es": "The result will be assigned to the variable(s) that have the same name",
+              "pr": "O resultado será atribuído à(s) variável(is) que possuem o mesmo nome"
+            },
+            "title": {
+              "es": "Asignar a las variables por nombre",
+              "en": "Assign to variables by name",
+              "pr": "Atribuir a variáveis por nome"
+            },
+            "remove_vars": true,
+            "id": "set_var_name",
+            "css": "col-md-6"
+          },
+          {
             "type": "input",
             "placeholder": {
               "es": "var",

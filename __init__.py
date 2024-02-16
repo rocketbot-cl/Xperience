@@ -118,27 +118,33 @@ if module == 'GetFormData':
     id_ = GetParams('id_')
     token_ = GetParams('token_')
     result = GetParams('result')
+    set_ = GetParams('set_var_name')
 
     try:
+        if set_:
+            set_ = eval(set_)
+
         res = requests.post(configFormObject.server_ + '/api/formData/getQueue/' + id_ + '/' + token_,
                             headers={'Authorization': "Bearer " + configFormObject.token}, proxies=configFormObject.proxies)
         if res.status_code == 200:
             result_dict = {}
             res = res.json()
 
-            if 'data' in res:
-                if 'user_form_email' in res['data']:
-                    SetVar('user_form_email', res['data']['user_form_email'])
-
-                if 'xperience' in res['data']:
-                    SetVar('xperience', res['data']['xperience'])
+            if 'data' in res and (set_ or set_ is None):
                 data = json.loads(res['data']['data'])
                 for attr, value in data.items():
-                    # print("attr:" + attr + " value:" + value)
                     if attr == 'file':
                         value = value.split("/")[-1]
                     result_dict[attr] = value
+            
+            if 'user_form_email' in res['data']:
+                SetVar('user_form_email', res['data']['user_form_email'])
+
+            if 'xperience' in res['data']:
+                SetVar('xperience', res['data']['xperience'])
+
             SetVar(result, result_dict)
+
         else:
             raise Exception(res.json()['message'])
 
