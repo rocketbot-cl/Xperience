@@ -111,7 +111,7 @@ if module == 'GetForm':
 
     except Exception as e:
         PrintException()
-        print(res.json())
+        # print(res.json())
         raise e
 
 if module == 'GetFormData':
@@ -134,7 +134,7 @@ if module == 'GetFormData':
                     SetVar('xperience', res['data']['xperience'])
                 data = json.loads(res['data']['data'])
                 for attr, value in data.items():
-                    print("attr:" + attr + " value:" + value)
+                    # print("attr:" + attr + " value:" + value)
                     if attr == 'file':
                         value = value.split("/")[-1]
                     result_dict[attr] = value
