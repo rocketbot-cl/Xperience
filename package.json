@@ -269,14 +269,19 @@
               "pr": "True"
             },
             "description": {
-              "en": "Se asignará el resultado a la(s) variable(s) que tengan el mismo nombre",
-              "es": "The result will be assigned to the variable(s) that have the same name",
-              "pr": "O resultado será atribuído à(s) variável(is) que possuem o mesmo nome"
+              "es": "Se asignará el resultado a las variables ya creadas",
+              "en": "The result will be assigned to the variables already created",
+              "pr": "O resultado será atribuído às variáveis já criadas"
             },
             "title": {
-              "es": "Asignar a las variables por nombre",
-              "en": "Assign to variables by name",
-              "pr": "Atribuir a variáveis por nome"
+              "es": "Autocompletar variables",
+              "en": "Autocomplete variables",
+              "pr": "Variáveis de preenchimento automático"
+            },
+            "help": {
+              "es": "Marcar en caso de querer autocompletar las variables de Rocketbot cuyo nombre sea igual al id de los campos del formulario de Xperience",
+              "en": "Check if you want to autocomplete Rocketbot variables whose name is equal to the id of the Xperience form fields",
+              "pr": "Verifique se deseja preencher automaticamente as variáveis ​​do Rocketbot cujo nome seja igual ao id dos campos do formulário Xperience"
             },
             "remove_vars": true,
             "id": "set_var_name",
