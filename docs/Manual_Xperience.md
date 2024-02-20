@@ -7,6 +7,7 @@
 Module to work with forms of Rocketbot Xperience  
 
 ![banner](imgs/Banner_Xperience.jpg)
+
 ## How to install this module
   
 To install the module in Rocketbot Studio, it can be done in two ways:
@@ -33,13 +34,14 @@ Get queues
 |Form Token|Form Token|8YWUW8AXAV3UPNKY|
 |Set to var|Variable to store result without {}|var|
 
-### Get Form queue data
+### Get all Form queue data
   
-Get Form data from queue
+Get all Form data from queue. The command returns the data in dictionary format
 |Parameters|Description|example|
 | --- | --- | --- |
 |Queue ID|Queue ID|1|
 |Form Token|Form Token|8YWUW8AXAV3UPNKY|
+|Autocomplete variables|The result will be assigned to the variables already created|True|
 |Set to var|Variable to store result without {}|var|
 
 ### Download Form File

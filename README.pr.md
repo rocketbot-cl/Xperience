@@ -23,8 +23,8 @@ Faça login no NOC usando uma das opções, arquivo noc.ini, API Key ou credenci
 2. Obter fila de trabalho de Formulários  
 Obtém as filas de trabalho
 
-3. Obter dados de Formulários  
-Obter dados de formulário da fila de trabalho
+3. Obter todos os dados de formulário  
+Obter todos os dados de formulário da fila de trabalho. O comando retorna os dados no formato de dicionário
 
 4. Baixar arquivo  
 Baixe um arquivo enviado em um formulário
