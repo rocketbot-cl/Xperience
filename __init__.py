@@ -1,5 +1,3 @@
-__version__ = '11.1.1'
-__author__ = 'Rocketbot <contacto@rocketbot.com>'
 
 import configparser
 import json
