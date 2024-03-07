@@ -145,7 +145,8 @@ if module == 'GetFormData':
                 SetVar('xperience', res['data']['xperience'])
 
             SetVar(result, result_dict)
-
+        elif res.status_code == 500:
+            raise Exception("Your xperience form has no data")
         else:
             raise Exception(res.json()['message'])
 
