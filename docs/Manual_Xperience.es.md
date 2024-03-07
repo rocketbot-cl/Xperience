@@ -6,7 +6,9 @@
   
 Módulo para trabajar con formularios de Rocketbot Xperience  
 
+  
 ![banner](imgs/Banner_Xperience.jpg)
+
 ## Como instalar este módulo
   
 Para instalar el módulo en Rocketbot Studio, se puede hacer de dos formas:
@@ -33,13 +35,14 @@ Obtiene las colas de trabajo
 |Form Token|Form Token|8YWUW8AXAV3UPNKY|
 |Asignar a variable|Variable donde guardar resultado sin {}|var|
 
-### Obtener datos de Forms
+### Obtener todos los datos de Formularios
   
-Obtener datos de formulario de la cola de trabajo
+Obtener todos los datos de formularios de la cola de trabajo. El comando devuelve los datos en formato de diccionario
 |Parámetros|Descripción|ejemplo|
 | --- | --- | --- |
 |ID cola de trabajo|ID de la cola de trabajo|1|
 |Form Token|Token del formulario|8YWUW8AXAV3UPNKY|
+|Autocompletar variables|Se asignará el resultado a las variables ya creadas|True|
 |Asignar a variable|Variable donde guardar resultado sin {}|var|
 
 ### Descarga archivo

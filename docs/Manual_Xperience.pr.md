@@ -6,7 +6,9 @@
   
 Modulo para trabalhar com formulários do Rocketbot Xperience  
 
+  
 ![banner](imgs/Banner_Xperience.jpg)
+
 ## Como instalar este módulo
   
 Para instalar o módulo no Rocketbot Studio, pode ser feito de duas formas:
@@ -33,13 +35,14 @@ Obtém as filas de trabalho
 |Form Token|Form Token|8YWUW8AXAV3UPNKY|
 |Definir como variável|Variável para guardar resultado sem {}|var|
 
-### Obter dados de Formulários
+### Obter todos os dados de formulário
   
-Obter dados de formulário da fila de trabalho
+Obter todos os dados de formulário da fila de trabalho. O comando retorna os dados no formato de dicionário
 |Parâmetros|Descrição|exemplo|
 | --- | --- | --- |
 |ID da fila de trabalho|ID da fila de trabalho|1|
 |Form Token|Form Token|8YWUW8AXAV3UPNKY|
+|Variáveis de preenchimento automático|O resultado será atribuído às variáveis já criadas|True|
 |Definir como variável|Variável para guardar resultado sem {}|var|
 
 ### Baixar arquivo
