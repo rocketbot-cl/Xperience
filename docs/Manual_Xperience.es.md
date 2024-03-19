@@ -79,3 +79,5 @@ Envía un archivo siempre que esté activa la opción SEND API del Form
 |Token Xperience|Token {xperience} que se genera con el comando 'Obtener datos del Form'|{xperience}|
 |Archivo a cargar|Ruta del archivo a enviar al orquestador|C:/Users/pc/Downloads/img.png|
 |Asignar a variable|Nombre de variable donde se guardara el resultado|variable|
+
+Documentación para recibir y obtener archivos de Xperience: https://docs.rocketbot.com/2024/01/22/how-to-send-data-to-xperience/

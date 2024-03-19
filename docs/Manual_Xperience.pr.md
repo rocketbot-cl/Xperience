@@ -79,3 +79,5 @@ Enviar um arquivo sempre que a opção SEND API do formulário estiver ativa
 |Xperience Token|Token {xperience} gerado com o comando 'Obter dados do formulário'|{xperience}|
 |Arquivo para carregar|Caminho do arquivo a ser enviado ao orquestrador|C:/Users/pc/Downloads/img.png|
 |Atribuir a variável|Nome da variável onde o resultado será salvo|variable|
+
+Documentação para receber e obter arquivos do Xperience: https://docs.rocketbot.com/2024/01/22/how-to-send-data-to-xperience/
