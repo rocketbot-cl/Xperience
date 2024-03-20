@@ -138,6 +138,9 @@ if module == 'GetFormData':
                     if set_:
                         SetVar(attr, value)
 
+                if data == None:
+                    raise ValueError("Your xperience form has no data")
+            
             if 'user_form_email' in res['data']:
                 SetVar('user_form_email', res['data']['user_form_email'])
 
@@ -145,7 +148,9 @@ if module == 'GetFormData':
                 SetVar('xperience', res['data']['xperience'])
 
             SetVar(result, result_dict)
-
+        
+        if 'No query results for model [App\\FormData]' in res.json()['message']:
+                raise ValueError("Your experience form has no data")
         else:
             raise Exception(res.json()['message'])
 
