@@ -78,3 +78,5 @@ Send a file whenever the Form's SEND API option is active
 |Xperience Token|Token {xperience} that is generated with the 'Get data from Form' command|{xperience}|
 |File to upload|File path to send to the orchestrator|C:/Users/pc/Downloads/img.png|
 |Set to var|Var where the result will be saved|variable|
+
+Documentation for receiving and getting files from Xperience: https://docs.rocketbot.com/2024/01/22/how-to-send-data-to-xperience/
