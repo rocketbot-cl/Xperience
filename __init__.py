@@ -1,18 +1,23 @@
-
-import configparser
 import json
 import platform
 import requests
 import traceback
 import os
+import sys
+
+# Rocketbot variables Linter
+tmp_global_obj = tmp_global_obj # type: ignore
+SetVar = SetVar # type: ignore
+GetParams = GetParams # type: ignore
+PrintException = PrintException # type: ignore
 
 base_path = tmp_global_obj["basepath"]
 cur_path = base_path + 'modules' + os.sep + 'Xperience' + os.sep + 'libs' + os.sep
 if cur_path not in sys.path:
     sys.path.append(cur_path)
 
-from configurationObject import ConfigObject
-from orchestator import OrchestatorCommon
+from configurationObject import ConfigObject # type: ignore
+from orchestator import OrchestatorCommon # type: ignore
 
 global configFormObject
 global path_ini_assetnoc_
@@ -270,4 +275,69 @@ if module == "SendFile":
     except Exception as e:
         PrintException()
         SetVar(res, False)
+        raise e
+    
+if module == "SearchInForm":
+    token_ = GetParams('token_')
+    data_name = GetParams('data_name')
+    search_value = GetParams('search_value')
+    result = GetParams('result')
+    autocomplete = eval(GetParams('autocomplete')) if GetParams('autocomplete') else False
+    lock_form = eval(GetParams('lock_form')) if GetParams('lock_form') else False
+    result_id = GetParams('result_id')
+
+
+    try:
+        result_dict = {}
+        res = requests.post(configFormObject.server_ + '/api/formData/get/' + token_,
+                            headers={'Authorization': "Bearer " + configFormObject.token}, proxies=None)
+        if res.status_code == 200:
+            tmp = []
+            res = res.json()
+            if 'data' in res:
+                break_ = False
+                for data in res['data']:
+
+                    aa = {'id': data['id']}
+                    tmp.append(aa)
+                    print("data", data['id'])
+                    form_data = requests.post(configFormObject.server_ + '/api/formData/getQueue/' + str(data['id']) + '/' + token_,
+                                              headers={'Authorization': "Bearer " + configFormObject.token}, proxies=configFormObject.proxies)
+                    
+                    form_data = form_data.json()
+
+                    
+                    if 'data' in form_data:
+                        
+                        form_data_ = json.loads(form_data['data']['data'])
+                        for key, value in form_data_.items():
+                            if key == data_name and value == search_value:
+                                result_dict = form_data_
+                                print("key", key, "value", value)
+                                break_ = True
+
+                                if autocomplete:
+                                    for attr, value in form_data_.items():
+                                        SetVar(attr, value)
+                                if lock_form:
+                                    data_lock = {'status': 0, 'locked': 1}
+                                    res = requests.post(configFormObject.server_ + '/api/formData/setStatus/' + str(data['id']), data=data_lock,
+                                                        headers={'Authorization': "Bearer " + configFormObject.token}, proxies=configFormObject.proxies)
+                                break
+
+                    if break_:
+                        SetVar(result_id, data['id'])
+                        SetVar(result, result_dict)
+
+                        if 'xperience' in form_data['data']:
+                            SetVar('xperience', form_data['data']['xperience'])
+                        break
+
+
+        
+        else:
+            raise Exception(res.json())
+
+    except Exception as e:
+        PrintException()
         raise e
