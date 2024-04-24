@@ -1,8 +1,11 @@
+
+
+
+
 # Rocketbot Xperience
   
 Module to work with forms of Rocketbot Xperience  
 
-*Read this in other languages: [English](Manual_Xperience.md), [Português](Manual_Xperience.pr.md), [Español](Manual_Xperience.es.md)*
   
 ![banner](imgs/Banner_Xperience.jpg)
 ## How to install this module
@@ -21,6 +24,7 @@ Login to NOC using one of the options, API Key, noc.ini file, or credentials.
 | --- | --- | --- |
 |URL Server|Server URL|https://roc.myrb.io/|
 |Select a method to connect to the Orchestrator|Options to login to R.O.C, you can use user credentials, API Key or by selecting noc.ini file|API Key|
+|Proxies|Proxies with which the session will be configured|Proxies|
 |Assign result to a Variable|Variable where the state of the connection will be stored, returns True if it is successful or False otherwise|Variable|
 
 ### Get Form queue
@@ -75,16 +79,3 @@ Send a file whenever the Form's SEND API option is active
 |Xperience Token|Token {xperience} that is generated with the 'Get data from Form' command|{xperience}|
 |File to upload|File path to send to the orchestrator|C:/Users/pc/Downloads/img.png|
 |Set to var|Var where the result will be saved|variable|
-
-### Search data in form
-  
-This command allows you to search for data in a form of Xperience
-|Parameters|Description|example|
-| --- | --- | --- |
-|Form Token|Form Token|8YWUW8AXAV3UPNKY|
-|ID of the element to search|ID of the element to search|User|
-|Value to search|Value to search in the selected input|Rocketbot|
-|Autocomplete variables|The result will be assigned to the variables already created|True|
-|Lock form queue|The form queue will be locked in the Orchestrator|True|
-|Assign results to variable|Variable to store result without {}|var|
-|Set id of the form queue to variable|Variable to store id of the form queue|var|

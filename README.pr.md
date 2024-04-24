@@ -1,8 +1,11 @@
+
+
+
+
 # Rocketbot Xperience
   
 Modulo para trabalhar com formulários do Rocketbot Xperience  
 
-*Read this in other languages: [English](README.md), [Português](README.pr.md), [Español](README.es.md)*
 
 ## Como instalar este módulo
   
@@ -33,10 +36,7 @@ Mudar o estado da fila
 Returns a message to the Xperience form
 
 7. Envie um arquivo para o Xperience  
-Enviar um arquivo sempre que a opção SEND API do formulário estiver ativa
-
-8. Pesquisar dados no formulário  
-Este comando permite pesquisar dados em um formulário Xperience  
+Enviar um arquivo sempre que a opção SEND API do formulário estiver ativa  
 
 
 
