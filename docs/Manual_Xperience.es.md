@@ -1,11 +1,8 @@
-
-
-
-
 # Rocketbot Xperience
   
 Módulo para trabajar con formularios de Rocketbot Xperience  
 
+*Read this in other languages: [English](Manual_Xperience.md), [Português](Manual_Xperience.pr.md), [Español](Manual_Xperience.es.md)*
   
 ![banner](imgs/Banner_Xperience.jpg)
 ## Como instalar este módulo
@@ -79,3 +76,16 @@ Envía un archivo siempre que esté activa la opción SEND API del Form
 |Token Xperience|Token {xperience} que se genera con el comando 'Obtener datos del Form'|{xperience}|
 |Archivo a cargar|Ruta del archivo a enviar al orquestador|C:/Users/pc/Downloads/img.png|
 |Asignar a variable|Nombre de variable donde se guardara el resultado|variable|
+
+### Buscar dato en formulario
+  
+Este comando permite buscar datos en un formulario de Xperience
+|Parámetros|Descripción|ejemplo|
+| --- | --- | --- |
+|Form Token|Form Token|8YWUW8AXAV3UPNKY|
+|ID del input a buscar|ID del input a buscar|User|
+|Valor a buscar|Valor que se buscará en el input seleccionado|Rocketbot|
+|Autocompletar variables|Se asignará el resultado a las variables ya creadas|True|
+|Bloquear cola del formulario|La cola del formulario se bloqueará en el Orquestador|True|
+|Asignar resultados a variable|Variable donde guardar resultado sin {}|var|
+|Asignar id de la cola del formulario a variable|Variable donde guardar id de la cola del formulario|var|

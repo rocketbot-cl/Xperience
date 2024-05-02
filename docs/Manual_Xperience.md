@@ -1,11 +1,8 @@
-
-
-
-
 # Rocketbot Xperience
   
 Module to work with forms of Rocketbot Xperience  
 
+*Read this in other languages: [English](Manual_Xperience.md), [Português](Manual_Xperience.pr.md), [Español](Manual_Xperience.es.md)*
   
 ![banner](imgs/Banner_Xperience.jpg)
 ## How to install this module
@@ -79,3 +76,16 @@ Send a file whenever the Form's SEND API option is active
 |Xperience Token|Token {xperience} that is generated with the 'Get data from Form' command|{xperience}|
 |File to upload|File path to send to the orchestrator|C:/Users/pc/Downloads/img.png|
 |Set to var|Var where the result will be saved|variable|
+
+### Search data in form
+  
+This command allows you to search for data in a form of Xperience
+|Parameters|Description|example|
+| --- | --- | --- |
+|Form Token|Form Token|8YWUW8AXAV3UPNKY|
+|Set to var|ID of the element to search|User|
+|Value to search|Value to search in the selected input|Rocketbot|
+|Autocomplete variables|The result will be assigned to the variables already created|True|
+|Lock form queue|The form queue will be locked in the Orchestrator|True|
+|Assign results to variable|Variable to store result without {}|var|
+|Set id of the form queue to variable|Variable to store id of the form queue|var|
