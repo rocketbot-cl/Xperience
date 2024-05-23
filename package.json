@@ -764,8 +764,8 @@
                 },
                 "title": {
                   "es": "ID del input a buscar",
-                  "en": "Set to var",
-                  "pr": "Definir como variável"
+                  "en": "ID of the element to search",
+                  "pr": "ID do input a ser pesquisado"
                 },
                 "id": "data_name",
                 "css": "col-md-6"
