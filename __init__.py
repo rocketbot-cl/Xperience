@@ -329,9 +329,12 @@ if module == "SearchInForm":
                             
                     #         break
 
-        
         else:
+            SetVar(result, False)
             raise Exception(res.json())
-
+            
     except Exception as e:
-        PrintException()        # print(res.json())        raise e
+        SetVar(result, False)
+        PrintException()
+        print(res.json())        
+        raise e
