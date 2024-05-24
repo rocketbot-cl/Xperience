@@ -297,7 +297,7 @@ if module == "SearchInForm":
 
                     aa = {'id': data['id']}
                     tmp.append(aa)
-                    print("data", data['id'])
+                    # print("data", data['id'])
                     form_data = requests.post(configFormObject.server_ + '/api/formData/getQueue/' + str(data['id']) + '/' + token_,
                                               headers={'Authorization': "Bearer " + configFormObject.token}, proxies=configFormObject.proxies)
                     
@@ -308,7 +308,7 @@ if module == "SearchInForm":
                         for key, value in form_data_.items():
                             if key == data_name and value == search_value:
                                 result_dict = form_data_
-                                print("key", key, "value", value)
+                                # print("key", key, "value", value)
                                 break_ = True
 
                                 if autocomplete:

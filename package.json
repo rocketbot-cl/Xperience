@@ -763,9 +763,9 @@
                   "pr": "ID do input a ser pesquisado"
                 },
                 "title": {
-                  "es": "ID del input a buscar",
-                  "en": "ID of the element to search",
-                  "pr": "ID do input a ser pesquisado"
+                  "es": "ID del input:",
+                  "en": "ID of the element:",
+                  "pr": "ID do input:"
                 },
                 "id": "data_name",
                 "css": "col-md-6"
