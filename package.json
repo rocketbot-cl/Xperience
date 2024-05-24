@@ -711,7 +711,7 @@
       {
           "en": {
             "title": "Search data in form",
-            "description": "This command allows you to search for data in a form of Xperience",
+            "description": "This command allows you to search for data in a Xperience form",
             "title_options": "Select Option",
             "options": null
           },
