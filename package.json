@@ -7,7 +7,7 @@
     "pr": "Modulo para trabalhar com formulários do Rocketbot Xperience"
   },
   "disclaimer": "THERE IS NO WARRANTY FOR THE PROGRAM, TO THE EXTENT PERMITTED BY APPLICABLE LAW. EXCEPT WHEN OTHERWISE STATED IN WRITING THE COPYRIGHT HOLDERS AND/OR OTHER PARTIES PROVIDE THE PROGRAM “AS IS” WITHOUT WARRANTY OF ANY KIND, EITHER EXPRESSED OR IMPLIED, INCLUDING, BUT NOT LIMITED TO, THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE. THE ENTIRE RISK AS TO THE QUALITY AND PERFORMANCE OF THE PROGRAM IS WITH YOU. SHOULD THE PROGRAM PROVE DEFECTIVE, YOU ASSUME THE COST OF ALL NECESSARY SERVICING, REPAIR OR CORRECTION.",
-  "version": "2.1.0",
+  "version": "2.1.1",
   "license": "MIT",
   "homepage": "http://rocketbot.com",
   "linux": true,
@@ -87,11 +87,11 @@
           {
             "type": "input",
             "description": {
-              "es": "Proxies con los que se configurará la sesión",
-              "en": "Proxies with which the session will be configured",
-              "pr": "Proxies com os que se configurará a sessão"
+              "es": "Proxies con los que se configurará la sesión. Indicar el protocolo seguido del servidor",
+              "en": "Proxies with which the session will be configured. Indicate the protocol followed by the server",
+              "pr": "Proxies com os que se configurará a sessão. Indique o protocolo seguido do servidor"
             },
-            "placeholder": "Proxies",
+            "placeholder": "http://00.00.000.000:0000",
             "title": {
               "es": "Proxies:",
               "en": "Proxies:",
@@ -105,6 +105,50 @@
             "remove_vars": true,
             "id": "proxies",
             "css": "col-md-12"
+          },
+          {
+            "type": "input",
+            "description": {
+              "es": "Opcional. Completar si se requiere configurar proxies.",
+              "en": "Optional. Complete if required to configure proxies.",
+              "pr": "Opcional. Completar se requirirá configurar proxies."
+            },
+            "placeholder": "user/user",
+            "title": {
+              "es": "Usuario proxie:",
+              "en": "User proxie:",
+              "pr": "Usuario proxie:"
+            },
+            "help": {
+              "es": "Usuario del proxie indicado",
+              "en": "User of the proxie indicated",
+              "pr": "Usuario do proxie indicado"
+            },
+            "remove_vars": true,
+            "id": "user_proxies",
+            "css": "col-md-6"
+          },
+          {
+            "type": "input",
+            "description": {
+              "es": "Opcional. Completar si se requiere configurar proxies.",
+              "en": "Optional. Complete if required to configure proxies.",
+              "pr": "Opcional. Completar se requiriere configurar proxies."
+            },
+            "placeholder": "#Aa000000.Aa0000000a#",
+            "title": {
+              "es": "Contraseña proxie:",
+              "en": "Password proxie:",
+              "pr": "Contraseña proxie:"
+            },
+            "help": {
+              "es": "Contraseña del proxie indicado",
+              "en": "Password of the proxie indicated",
+              "pr": "Contraseña do proxie indicado"
+            },
+            "remove_vars": true,
+            "id": "pass_proxies",
+            "css": "col-md-6"
           },
           {
             "type": "input",

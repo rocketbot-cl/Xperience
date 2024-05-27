@@ -30,10 +30,22 @@ if module == 'Login':
     path = iframe.get("path_ini", GetParams("ruta_"))
     path_ini_assetnoc_ = path
     proxies = GetParams("proxies")
+    user_proxies = GetParams("user_proxies")
+    pass_proxies = GetParams("pass_proxies")
+
     try:
         if not proxies:
             proxies = None
-            
+
+        if user_proxies and pass_proxies:
+            user_proxies = urllib.parse.quote(f"{user_proxies}")
+            pass_proxies = urllib.parse.quote(f"{pass_proxies}")
+            protocolo = proxies.split('://')[0] + "://"
+            server = proxies.split('://')[1]
+            url_proxy = protocolo + user_proxies + ":" + pass_proxies + "@" + server
+            proxies = {"http": url_proxy, "https": url_proxy}
+            print(proxies)
+
         if password and username:
             try:
                 orchestrator_service = OrchestatorCommon(server=server_, user=username, password=password, ini_path=path, apikey=api_key)
@@ -42,7 +54,7 @@ if module == 'Login':
                 token = orchestrator_service.get_authorization_token()
                 headers = {'content-type': 'application/x-www-form-urlencoded','Authorization': 'Bearer {token}'.format(token=token)}
                 res = requests.post(server_ + '/api/formData/all',
-                                    headers=headers)
+                                    headers=headers, proxies=proxies)
                 configFormObject = ConfigObject(token, orchestrator_service.server, orchestrator_service.user, orchestrator_service.password, api_key, proxies=proxies)
                 conx = True
                 SetVar(var_, conx) #type: ignore
@@ -61,7 +73,7 @@ if module == 'Login':
             token = orchestrator_service.get_authorization_token()
             headers = {'content-type': 'application/x-www-form-urlencoded','Authorization': 'Bearer {token}'.format(token=token)}
             res = requests.post(server_ + '/api/formData/all',
-                                headers=headers)
+                                headers=headers, proxies=proxies)
             configFormObject = ConfigObject(token, orchestrator_service.server, orchestrator_service.user, orchestrator_service.password, api_key, proxies=proxies)
             if res.status_code != 200:
                 exc = res.json()['message'] if res.json()['message'] else "El API Key es incorrecto"
@@ -78,8 +90,8 @@ if module == 'Login':
                 token = orchestrator_service.get_authorization_token()
                 headers = {'content-type': 'application/x-www-form-urlencoded','Authorization': 'Bearer {token}'.format(token=token)}
                 res = requests.post(server_ + '/api/formData/all',
-                                    headers=headers)
-                configFormObject = ConfigObject(token, orchestrator_service.server, orchestrator_service.user, orchestrator_service.password, api_key, None)
+                                    headers=headers, proxies=proxies)
+                configFormObject = ConfigObject(token, orchestrator_service.server, orchestrator_service.user, orchestrator_service.password, api_key, proxies=proxies)
                 conx = True
                 SetVar(var_, conx)
             except:
