@@ -1,14 +1,10 @@
-
-
-
-
 # Rocketbot Xperience
   
 Modulo para trabalhar com formulários do Rocketbot Xperience  
 
+*Read this in other languages: [English](Manual_Xperience.md), [Português](Manual_Xperience.pr.md), [Español](Manual_Xperience.es.md)*
   
 ![banner](imgs/Banner_Xperience.jpg)
-
 ## Como instalar este módulo
   
 Para instalar o módulo no Rocketbot Studio, pode ser feito de duas formas:
@@ -25,6 +21,7 @@ Faça login no NOC usando uma das opções, arquivo noc.ini, API Key ou credenci
 | --- | --- | --- |
 |URL Servidor|URL do servidor para se conectar|https://roc.myrb.io/|
 |Selecione um método para se conectar ao orquestrador|Opções para fazer login no R.O.C, você pode usar credenciais de usuário, chave de API ou selecionar o arquivo noc.ini|API Key|
+|Proxies|Proxies com os que se configurará a sessão|Proxies|
 |Atribuir resultado à variável|Variável onde será armazenado o estado da conexão, retorna True se for bem sucedida ou False caso contrário|Variable|
 
 ### Obter fila de trabalho de Formulários
@@ -79,3 +76,16 @@ Enviar um arquivo sempre que a opção SEND API do formulário estiver ativa
 |Xperience Token|Token {xperience} gerado com o comando 'Obter dados do formulário'|{xperience}|
 |Arquivo para carregar|Caminho do arquivo a ser enviado ao orquestrador|C:/Users/pc/Downloads/img.png|
 |Atribuir a variável|Nome da variável onde o resultado será salvo|variable|
+
+### Pesquisar dados no formulário
+  
+Este comando permite pesquisar dados em um formulário Xperience
+|Parâmetros|Descrição|exemplo|
+| --- | --- | --- |
+|Form Token|Form Token|8YWUW8AXAV3UPNKY|
+|Definir como variável|ID do input a ser pesquisado|User|
+|Valor a buscar|Valor a ser pesquisado no input selecionado|Rocketbot|
+|Variáveis de preenchimento automático|O resultado será atribuído às variáveis já criadas|True|
+|Bloquear fila do formulário|A fila do formulário será bloqueada no Orquestrador|True|
+|Atribuir resultados à variável|Variável para guardar resultado sem {}|var|
+|Definir id da fila do formulário para variável|Variável para armazenar id da fila do formulário|var|

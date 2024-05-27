@@ -1,11 +1,8 @@
-
-
-
-
 # Rocketbot Xperience
   
 Module to work with forms of Rocketbot Xperience  
 
+*Read this in other languages: [English](README.md), [Português](README.pr.md), [Español](README.es.md)*
 
 ## How to install this module
   
@@ -36,7 +33,10 @@ Change status to form queue
 Returns a message to the Xperience form
 
 7. Send a file to Xperience  
-Send a file whenever the Form's SEND API option is active  
+Send a file whenever the Form's SEND API option is active
+
+8. Search data in form  
+This command allows you to search for data in a form of Xperience  
 
 
 

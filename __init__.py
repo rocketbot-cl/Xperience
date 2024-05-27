@@ -29,8 +29,11 @@ if module == 'Login':
     api_key = iframe.get("apikey", "")
     path = iframe.get("path_ini", GetParams("ruta_"))
     path_ini_assetnoc_ = path
-    # proxies = GetParams("proxies")
+    proxies = GetParams("proxies")
     try:
+        if not proxies:
+            proxies = None
+            
         if password and username:
             try:
                 orchestrator_service = OrchestatorCommon(server=server_, user=username, password=password, ini_path=path, apikey=api_key)
@@ -40,7 +43,7 @@ if module == 'Login':
                 headers = {'content-type': 'application/x-www-form-urlencoded','Authorization': 'Bearer {token}'.format(token=token)}
                 res = requests.post(server_ + '/api/formData/all',
                                     headers=headers)
-                configFormObject = ConfigObject(token, orchestrator_service.server, orchestrator_service.user, orchestrator_service.password, api_key, None)
+                configFormObject = ConfigObject(token, orchestrator_service.server, orchestrator_service.user, orchestrator_service.password, api_key, proxies=proxies)
                 conx = True
                 SetVar(var_, conx) #type: ignore
 
@@ -59,7 +62,7 @@ if module == 'Login':
             headers = {'content-type': 'application/x-www-form-urlencoded','Authorization': 'Bearer {token}'.format(token=token)}
             res = requests.post(server_ + '/api/formData/all',
                                 headers=headers)
-            configFormObject = ConfigObject(token, orchestrator_service.server, orchestrator_service.user, orchestrator_service.password, api_key, None)
+            configFormObject = ConfigObject(token, orchestrator_service.server, orchestrator_service.user, orchestrator_service.password, api_key, proxies=proxies)
             if res.status_code != 200:
                 exc = res.json()['message'] if res.json()['message'] else "El API Key es incorrecto"
                 raise Exception(exc)
@@ -95,7 +98,7 @@ if module == 'GetForm':
 
     try:
         res = requests.post(configFormObject.server_ + '/api/formData/get/' + token_,
-                            headers={'Authorization': "Bearer " + configFormObject.token}, proxies=None)
+                            headers={'Authorization': "Bearer " + configFormObject.token}, proxies=configFormObject.proxies)
         if res.status_code == 200:
             tmp = []
             res = res.json()
@@ -269,4 +272,69 @@ if module == "SendFile":
     except Exception as e:
         PrintException()
         SetVar(res, False)
+        raise e
+    
+if module == "SearchInForm":
+    token_ = GetParams('token_')
+    data_name = GetParams('data_name')
+    search_value = GetParams('search_value')
+    result = GetParams('result')
+    autocomplete = eval(GetParams('autocomplete')) if GetParams('autocomplete') else False
+    lock_form = eval(GetParams('lock_form')) if GetParams('lock_form') else False
+    result_id = GetParams('result_id')
+
+
+    try:
+        result_dict = {}
+        res = requests.post(configFormObject.server_ + '/api/formData/get/' + token_,
+                            headers={'Authorization': "Bearer " + configFormObject.token}, proxies=None)
+        if res.status_code == 200:
+            tmp = []
+            res = res.json()
+            if 'data' in res:
+                break_ = False
+                for data in res['data']:
+
+                    aa = {'id': data['id']}
+                    tmp.append(aa)
+                    # print("data", data['id'])
+                    form_data = requests.post(configFormObject.server_ + '/api/formData/getQueue/' + str(data['id']) + '/' + token_,
+                                              headers={'Authorization': "Bearer " + configFormObject.token}, proxies=configFormObject.proxies)
+                    
+                    form_data = form_data.json()
+                    
+                    if 'data' in form_data:
+                        form_data_ = json.loads(form_data['data']['data'])
+                        for key, value in form_data_.items():
+                            if key == data_name and value == search_value:
+                                result_dict = form_data_
+                                # print("key", key, "value", value)
+                                break_ = True
+
+                                if autocomplete:
+                                    for attr, value in form_data_.items():
+                                        SetVar(attr, value)
+                                if lock_form:
+                                    data_lock = {'status': 0, 'locked': 1}
+                                    res = requests.post(configFormObject.server_ + '/api/formData/setStatus/' + str(data['id']), data=data_lock,
+                                                        headers={'Authorization': "Bearer " + configFormObject.token}, proxies=configFormObject.proxies)
+                                break
+
+                    if break_:
+                        SetVar(result_id, data['id'])
+                        SetVar(result, result_dict)
+                        break
+                    # for key, value in form_data['data']['data'].items():
+                    #     if key == data_name and value == search_value:
+                            
+                    #         break
+
+        else:
+            SetVar(result, False)
+            raise Exception(res.json())
+            
+    except Exception as e:
+        SetVar(result, False)
+        PrintException()
+        print(res.json())        
         raise e
