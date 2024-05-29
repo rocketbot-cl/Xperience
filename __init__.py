@@ -146,12 +146,17 @@ if module == 'GetFormData':
             if 'data' in res:
 
                 data = json.loads(res['data']['data'])
-                for attr, value in data.items():
-                    if attr == 'file':
-                        value = value.split("/")[-1]
-                    result_dict[attr] = value
-                    if set_:
-                        SetVar(attr, value)
+                if isinstance(data, dict):
+                    for attr, value in data.items():
+                        if attr == 'file':
+                            value = value.split("/")[-1]
+                        result_dict[attr] = value
+                        if set_:
+                            SetVar(attr, value)
+                else:
+                    result_dict = data
+
+                    
 
             if 'user_form_email' in res['data']:
                 SetVar('user_form_email', res['data']['user_form_email'])
