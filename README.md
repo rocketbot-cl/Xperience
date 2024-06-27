@@ -1,3 +1,7 @@
+
+
+
+
 # Rocketbot Xperience
   
 Module to work with forms of Rocketbot Xperience  
@@ -20,23 +24,26 @@ Login to NOC using one of the options, API Key, noc.ini file, or credentials.
 2. Get Form queue  
 Get queues
 
-3. Get all Form queue data  
+3. Get Form queue locked  
+Get queues locked
+
+4. Get all Form queue data  
 Get all Form data from queue. The command returns the data in dictionary format
 
-4. Download Form File  
+5. Download Form File  
 Download a file uploaded in a form
 
-5. Update Form queue status  
+6. Update Form queue status  
 Change status to form queue
 
-6. Return Message to Xperience  
+7. Return Message to Xperience  
 Returns a message to the Xperience form
 
-7. Send a file to Xperience  
+8. Send a file to Xperience  
 Send a file whenever the Form's SEND API option is active
 
-8. Search data in form  
-This command allows you to search for data in a form of Xperience  
+9. Search data in form  
+This command allows you to search for data in an Xperience form  
 
 
 

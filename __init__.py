@@ -355,3 +355,34 @@ if module == "SearchInForm":
         PrintException()
         print(res.json())        
         raise e
+
+
+
+
+if module == 'GetQueuesLocked':
+    token_ = GetParams('token')
+    var_ = GetParams('result')
+
+    if not token_:
+        raise Exception("No token provided")
+    try:
+        res = requests.post(configFormObject.server_ + '/api/formData/all',
+                            headers={'Authorization': "Bearer " + configFormObject.token}, proxies=configFormObject.proxies)
+        
+        if res.status_code == 200:
+            tmp = []
+            res = res.json()
+            queues = []
+            if 'data' in res:
+                for data in res['data']:
+                    if data['locked'] == 1 and data['form_token'] == token_:
+                        aa = {'id': data['id']}
+                        tmp.append(aa)
+            SetVar(var_, tmp)
+
+        else:
+            raise Exception("Bad Request, status_code: "+str(res.status_code))
+
+    except Exception as e:
+        PrintException()
+        raise e

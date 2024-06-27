@@ -1,3 +1,7 @@
+
+
+
+
 # Rocketbot Xperience
   
 Modulo para trabalhar com formulários do Rocketbot Xperience  
@@ -20,22 +24,25 @@ Faça login no NOC usando uma das opções, arquivo noc.ini, API Key ou credenci
 2. Obter fila de trabalho de Formulários  
 Obtém as filas de trabalho
 
-3. Obter todos os dados de formulário  
+3. Obter fila de trabalho bloqueada de Formulários  
+Obtém as filas de trabalho bloqueadas
+
+4. Obter todos os dados de formulário  
 Obter todos os dados de formulário da fila de trabalho. O comando retorna os dados no formato de dicionário
 
-4. Baixar arquivo  
+5. Baixar arquivo  
 Baixe um arquivo enviado em um formulário
 
-5. Atualizar estado da fila Form  
+6. Atualizar estado da fila Form  
 Mudar o estado da fila
 
-6. Return Message to Xperience  
+7. Return Message to Xperience  
 Returns a message to the Xperience form
 
-7. Envie um arquivo para o Xperience  
+8. Envie um arquivo para o Xperience  
 Enviar um arquivo sempre que a opção SEND API do formulário estiver ativa
 
-8. Pesquisar dados no formulário  
+9. Pesquisar dados no formulário  
 Este comando permite pesquisar dados em um formulário Xperience  
 
 

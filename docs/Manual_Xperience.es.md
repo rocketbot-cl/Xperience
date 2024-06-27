@@ -1,3 +1,7 @@
+
+
+
+
 # Rocketbot Xperience
   
 Módulo para trabajar con formularios de Rocketbot Xperience  
@@ -21,12 +25,22 @@ Inicie sesión en NOC utilizando unda de las opciones, API Key, archivo noc.ini 
 | --- | --- | --- |
 |URL Servidor|URL del servidor a donde se conecta|https://roc.myrb.io/|
 |Seleccione un metodo para conectarse al Orquestador|Opciones para iniciar sesión en R.O.C, se puede usar las credenciales del usuario, API Key o seleccionando archivo noc.ini|API Key|
-|Proxies|Proxies con los que se configurará la sesión|Proxies|
+|Proxies|Proxies con los que se configurará la sesión. Indicar el protocolo seguido del servidor|http://00.00.000.000:0000|
+|Usuario proxie|Opcional. Completar si se requiere configurar proxies.|user/user|
+|Contraseña proxie|Opcional. Completar si se requiere configurar proxies.|#Aa000000.Aa0000000a#|
 |Asignar resultado a Variable|Variable donde se almacenara el estado de la conexion, devuelve True si es exitosa o False en el caso contrario|Variable|
 
 ### Obtener cola de trabajo de Forms
   
 Obtiene las colas de trabajo
+|Parámetros|Descripción|ejemplo|
+| --- | --- | --- |
+|Form Token|Form Token|8YWUW8AXAV3UPNKY|
+|Asignar a variable|Variable donde guardar resultado sin {}|var|
+
+### Obtener cola de trabajo bloqueadas de un Form
+  
+Obtiene las colas de trabajo bloqueadas
 |Parámetros|Descripción|ejemplo|
 | --- | --- | --- |
 |Form Token|Form Token|8YWUW8AXAV3UPNKY|
@@ -83,7 +97,7 @@ Este comando permite buscar datos en un formulario de Xperience
 |Parámetros|Descripción|ejemplo|
 | --- | --- | --- |
 |Form Token|Form Token|8YWUW8AXAV3UPNKY|
-|ID del input a buscar|ID del input a buscar|User|
+|ID del input|ID del input a buscar|User|
 |Valor a buscar|Valor que se buscará en el input seleccionado|Rocketbot|
 |Autocompletar variables|Se asignará el resultado a las variables ya creadas|True|
 |Bloquear cola del formulario|La cola del formulario se bloqueará en el Orquestador|True|
