@@ -1,3 +1,7 @@
+
+
+
+
 # Rocketbot Xperience
   
 Module to work with forms of Rocketbot Xperience  
@@ -21,12 +25,22 @@ Login to NOC using one of the options, API Key, noc.ini file, or credentials.
 | --- | --- | --- |
 |URL Server|Server URL|https://roc.myrb.io/|
 |Select a method to connect to the Orchestrator|Options to login to R.O.C, you can use user credentials, API Key or by selecting noc.ini file|API Key|
-|Proxies|Proxies with which the session will be configured|Proxies|
+|Proxies|Proxies with which the session will be configured. Indicate the protocol followed by the server|http://00.00.000.000:0000|
+|User proxie|Optional. Complete if required to configure proxies.|user/user|
+|Password proxie|Optional. Complete if required to configure proxies.|#Aa000000.Aa0000000a#|
 |Assign result to a Variable|Variable where the state of the connection will be stored, returns True if it is successful or False otherwise|Variable|
 
 ### Get Form queue
   
 Get queues
+|Parameters|Description|example|
+| --- | --- | --- |
+|Form Token|Form Token|8YWUW8AXAV3UPNKY|
+|Set to var|Variable to store result without {}|var|
+
+### Get Form queue locked
+  
+Get queues locked
 |Parameters|Description|example|
 | --- | --- | --- |
 |Form Token|Form Token|8YWUW8AXAV3UPNKY|
@@ -79,11 +93,11 @@ Send a file whenever the Form's SEND API option is active
 
 ### Search data in form
   
-This command allows you to search for data in a form of Xperience
+This command allows you to search for data in an Xperience form
 |Parameters|Description|example|
 | --- | --- | --- |
 |Form Token|Form Token|8YWUW8AXAV3UPNKY|
-|Set to var|ID of the element to search|User|
+|ID of the element|ID of the element to search|User|
 |Value to search|Value to search in the selected input|Rocketbot|
 |Autocomplete variables|The result will be assigned to the variables already created|True|
 |Lock form queue|The form queue will be locked in the Orchestrator|True|

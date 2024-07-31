@@ -1,3 +1,7 @@
+
+
+
+
 # Rocketbot Xperience
   
 Modulo para trabalhar com formulários do Rocketbot Xperience  
@@ -21,12 +25,22 @@ Faça login no NOC usando uma das opções, arquivo noc.ini, API Key ou credenci
 | --- | --- | --- |
 |URL Servidor|URL do servidor para se conectar|https://roc.myrb.io/|
 |Selecione um método para se conectar ao orquestrador|Opções para fazer login no R.O.C, você pode usar credenciais de usuário, chave de API ou selecionar o arquivo noc.ini|API Key|
-|Proxies|Proxies com os que se configurará a sessão|Proxies|
+|Proxies|Proxies com os que se configurará a sessão. Indique o protocolo seguido do servidor|http://00.00.000.000:0000|
+|Usuario proxie|Opcional. Completar se requirirá configurar proxies.|user/user|
+|Contraseña proxie|Opcional. Completar se requiriere configurar proxies.|#Aa000000.Aa0000000a#|
 |Atribuir resultado à variável|Variável onde será armazenado o estado da conexão, retorna True se for bem sucedida ou False caso contrário|Variable|
 
 ### Obter fila de trabalho de Formulários
   
 Obtém as filas de trabalho
+|Parâmetros|Descrição|exemplo|
+| --- | --- | --- |
+|Form Token|Form Token|8YWUW8AXAV3UPNKY|
+|Definir como variável|Variável para guardar resultado sem {}|var|
+
+### Obter fila de trabalho bloqueada de Formulários
+  
+Obtém as filas de trabalho bloqueadas
 |Parâmetros|Descrição|exemplo|
 | --- | --- | --- |
 |Form Token|Form Token|8YWUW8AXAV3UPNKY|
@@ -83,7 +97,7 @@ Este comando permite pesquisar dados em um formulário Xperience
 |Parâmetros|Descrição|exemplo|
 | --- | --- | --- |
 |Form Token|Form Token|8YWUW8AXAV3UPNKY|
-|Definir como variável|ID do input a ser pesquisado|User|
+|ID do input|ID do input a ser pesquisado|User|
 |Valor a buscar|Valor a ser pesquisado no input selecionado|Rocketbot|
 |Variáveis de preenchimento automático|O resultado será atribuído às variáveis já criadas|True|
 |Bloquear fila do formulário|A fila do formulário será bloqueada no Orquestrador|True|

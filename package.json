@@ -7,7 +7,7 @@
     "pr": "Modulo para trabalhar com formulários do Rocketbot Xperience"
   },
   "disclaimer": "THERE IS NO WARRANTY FOR THE PROGRAM, TO THE EXTENT PERMITTED BY APPLICABLE LAW. EXCEPT WHEN OTHERWISE STATED IN WRITING THE COPYRIGHT HOLDERS AND/OR OTHER PARTIES PROVIDE THE PROGRAM “AS IS” WITHOUT WARRANTY OF ANY KIND, EITHER EXPRESSED OR IMPLIED, INCLUDING, BUT NOT LIMITED TO, THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE. THE ENTIRE RISK AS TO THE QUALITY AND PERFORMANCE OF THE PROGRAM IS WITH YOU. SHOULD THE PROGRAM PROVE DEFECTIVE, YOU ASSUME THE COST OF ALL NECESSARY SERVICING, REPAIR OR CORRECTION.",
-  "version": "2.1.0",
+  "version": "2.1.4",
   "license": "MIT",
   "homepage": "http://rocketbot.com",
   "linux": true,
@@ -87,11 +87,11 @@
           {
             "type": "input",
             "description": {
-              "es": "Proxies con los que se configurará la sesión",
-              "en": "Proxies with which the session will be configured",
-              "pr": "Proxies com os que se configurará a sessão"
+              "es": "Proxies con los que se configurará la sesión. Indicar el protocolo seguido del servidor",
+              "en": "Proxies with which the session will be configured. Indicate the protocol followed by the server",
+              "pr": "Proxies com os que se configurará a sessão. Indique o protocolo seguido do servidor"
             },
-            "placeholder": "Proxies",
+            "placeholder": "http://00.00.000.000:0000",
             "title": {
               "es": "Proxies:",
               "en": "Proxies:",
@@ -105,6 +105,50 @@
             "remove_vars": true,
             "id": "proxies",
             "css": "col-md-12"
+          },
+          {
+            "type": "input",
+            "description": {
+              "es": "Opcional. Completar si se requiere configurar proxies.",
+              "en": "Optional. Complete if required to configure proxies.",
+              "pr": "Opcional. Completar se requirirá configurar proxies."
+            },
+            "placeholder": "user/user",
+            "title": {
+              "es": "Usuario proxie:",
+              "en": "User proxie:",
+              "pr": "Usuario proxie:"
+            },
+            "help": {
+              "es": "Usuario del proxie indicado",
+              "en": "User of the proxie indicated",
+              "pr": "Usuario do proxie indicado"
+            },
+            "remove_vars": true,
+            "id": "user_proxies",
+            "css": "col-md-6"
+          },
+          {
+            "type": "input",
+            "description": {
+              "es": "Opcional. Completar si se requiere configurar proxies.",
+              "en": "Optional. Complete if required to configure proxies.",
+              "pr": "Opcional. Completar se requiriere configurar proxies."
+            },
+            "placeholder": "#Aa000000.Aa0000000a#",
+            "title": {
+              "es": "Contraseña proxie:",
+              "en": "Password proxie:",
+              "pr": "Contraseña proxie:"
+            },
+            "help": {
+              "es": "Contraseña del proxie indicado",
+              "en": "Password of the proxie indicated",
+              "pr": "Contraseña do proxie indicado"
+            },
+            "remove_vars": true,
+            "id": "pass_proxies",
+            "css": "col-md-6"
           },
           {
             "type": "input",
@@ -211,6 +255,84 @@
       "video_youtube": "",
       "icon": "data:image/svg+xml;base64,PHN2ZyBpZD0iQ2FwYV8xIiBkYXRhLW5hbWU9IkNhcGEgMSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIiB2aWV3Qm94PSIwIDAgODUuMDQgODUuMDQiPjxkZWZzPjxzdHlsZT4uY2xzLTF7ZmlsbDojYmMxODFiO30uY2xzLTJ7ZmlsbDojZmZmO308L3N0eWxlPjwvZGVmcz48cGF0aCBjbGFzcz0iY2xzLTEiIGQ9Ik03My42NCwxMS4yMmMtNy02LjQ3LTE3LjQtOS43LTMxLjEyLTkuN1MxOC4zOSw0Ljc1LDExLjQsMTEuMjIuOTEsMjguMTguOTEsNDIuNjEsNC40LDY3LjM1LDExLjQsNzMuODJzMTcuMzksOS43LDMxLjEyLDkuNywyNC4xMy0zLjIzLDMxLjEyLTkuN1M4NC4xMyw1Ni45NCw4NC4xMyw0Mi42MSw4MC43MiwxNy42OSw3My42NCwxMS4yMiIvPjxnIGlkPSJEaG44dVQudGlmIj48cGF0aCBjbGFzcz0iY2xzLTIiIGQ9Ik00OS4yNywxNS4xNmgxLjE1bC4xNS4wNWMuNTcuMTEsMS4xNi4xOCwxLjcyLjMzYTUuMjYsNS4yNiwwLDAsMSwzLjg1LDMuOTMsMTIuMTIsMTIuMTIsMCwwLDEsLjM3LDMuNzUsMTEuMjksMTEuMjksMCwwLDEtMSw0LjI4Yy0uMzYuODEtLjgsMS41OC0xLjE5LDIuMzctLjE3LjM2LS4zLjc0LS40NiwxLjE0aDguMzdhNS45Myw1LjkzLDAsMCwxLC45NCwwLDUuNzksNS43OSwwLDAsMSw0Ljg3LDQsNi40Nyw2LjQ3LDAsMCwxLTEuMiw2LjM2LjM5LjM5LDAsMCwwLS4wOC40MkE3LjI5LDcuMjksMCwwLDEsNjcuMTIsNDVhNi41OCw2LjU4LDAsMCwxLTEuMTgsMywuNDEuNDEsMCwwLDAtLjA3LjI4QTYsNiwwLDAsMSw2Niw1MC45MWE2LjQ1LDYuNDUsMCwwLDEtMS42OSwzLjYzLjQ4LjQ4LDAsMCwwLS4xNS40MSw5Ljc3LDkuNzcsMCwwLDEtLjEzLDIuMzUsNi4yOSw2LjI5LDAsMCwxLTIuNDEsNCw3LjcxLDcuNzEsMCwwLDEtNC40OCwxLjQ2Yy0xLjMzLDAtMi42NSwwLTQsMGEyMS41NSwyMS41NSwwLDAsMS0zLjY4LS4yNSwzNC4zLDM0LjMsMCwwLDEtNS4xMy0xLjE1Yy0yLjA3LS42Ni00LjEyLTEuMzgtNi4xOS0yYTE1LjIzLDE1LjIzLDAsMCwwLTIuNDctLjU3LDIuMjcsMi4yNywwLDAsMS0yLTIuMTJjMC01LjY0LDAtMTEuMjksMC0xNi45NCwwLS45NCwwLTEuODksMC0yLjg0QTIsMiwwLDAsMSwzNS40MywzNWExLjY4LDEuNjgsMCwwLDAsLjg3LS4zMiw3LjY1LDcuNjUsMCwwLDAsLjY5LS41NiwzNy41MywzNy41MywwLDAsMCwzLjU1LTRjMS4yMy0xLjU2LDIuNDQtMy4xMywzLjgtNC41N2E0LjUxLDQuNTEsMCwwLDAsLjY3LTEsMTMuMjcsMTMuMjcsMCwwLDAsMS4xNC0zLjc5LDExLjM3LDExLjM3LDAsMCwxLDEuMDctMy41M0EzLjMyLDMuMzIsMCwwLDEsNDkuMjcsMTUuMTZaIi8+PHBhdGggY2xhc3M9ImNscy0yIiBkPSJNMTYuODcsMzYuNjljMC0uMTMuMDctLjI2LjExLS4zOUEyLDIsMCwwLDEsMTguNzgsMzVjMS4zMiwwLDIuNjMsMCwzLjk1LDAsMS42NywwLDMuMzMsMCw1LDBhMiwyLDAsMCwxLDIsMS41MywyLjg4LDIuODgsMCwwLDEsLjA2LjU5VjU2LjY0YTIsMiwwLDAsMS0yLjExLDIuMTNIMTlhMiwyLDAsMCwxLTIuMDYtMS42OWwwLDBaTTIzLjIsNTQuOGEyLjYsMi42LDAsMCwwLDIuNjMtMi41OUEyLjYxLDIuNjEsMCwxLDAsMjMuMiw1NC44WiIvPjwvZz48L3N2Zz4=",
       "module": "GetForm",
+      "module_name": "Xperience",
+      "visible": true,
+      "options": false,
+      "father": "module",
+      "group": "scripts",
+      "linux": true,
+      "windows": true,
+      "mac": true,
+      "docker": true
+    },
+    {
+      "en": {
+        "title": "Get Form queue locked",
+        "description": "Get queues locked",
+        "title_options": "Select Option",
+        "options": null
+      },
+      "es": {
+        "title": "Obtener cola de trabajo bloqueadas de un Form",
+        "description": "Obtiene las colas de trabajo bloqueadas",
+        "title_options": "Seleccione una opción",
+        "options": null
+      },
+      "pr": {
+        "title": "Obter fila de trabalho bloqueada de Formulários",
+        "description": "Obtém as filas de trabalho bloqueadas",
+        "title_options": "Selecione uma opção",
+        "options": null
+      },
+      "form": {
+        "css": "modal-lg",
+        "inputs": [
+          {
+            "type": "input",
+            "placeholder": {
+              "es": "8YWUW8AXAV3UPNKY",
+              "en": "8YWUW8AXAV3UPNKY",
+              "pr": "8YWUW8AXAV3UPNKY"
+            },
+            "title": {
+              "es": "Form Token",
+              "en": "Form Token",
+              "pr": "Form Token"
+            },
+            "description": {
+              "es": "Form Token",
+              "en": "Form Token",
+              "pr": "Form Token"
+            },
+            "id": "token",
+            "css": "col-md-6"
+          },
+          {
+            "type": "input",
+            "placeholder": {
+              "es": "var",
+              "en": "var",
+              "pr": "var"
+            },
+            "description": {
+              "en": "Variable to store result without {}",
+              "es": "Variable donde guardar resultado sin {}",
+              "pr": "Variável para guardar resultado sem {}"
+            },
+            "title": {
+              "es": "Asignar a variable",
+              "en": "Set to var",
+              "pr": "Definir como variável"
+            },
+            "remove_vars": true,
+            "id": "result",
+            "css": "col-md-6"
+          }
+        ]
+      },
+      "video_youtube": "",
+      "icon": "data:image/svg+xml;base64,PHN2ZyBpZD0iQ2FwYV8xIiBkYXRhLW5hbWU9IkNhcGEgMSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIiB2aWV3Qm94PSIwIDAgODUuMDQgODUuMDQiPjxkZWZzPjxzdHlsZT4uY2xzLTF7ZmlsbDojYmMxODFiO30uY2xzLTJ7ZmlsbDojZmZmO308L3N0eWxlPjwvZGVmcz48cGF0aCBjbGFzcz0iY2xzLTEiIGQ9Ik03My42NCwxMS4yMmMtNy02LjQ3LTE3LjQtOS43LTMxLjEyLTkuN1MxOC4zOSw0Ljc1LDExLjQsMTEuMjIuOTEsMjguMTguOTEsNDIuNjEsNC40LDY3LjM1LDExLjQsNzMuODJzMTcuMzksOS43LDMxLjEyLDkuNywyNC4xMy0zLjIzLDMxLjEyLTkuN1M4NC4xMyw1Ni45NCw4NC4xMyw0Mi42MSw4MC43MiwxNy42OSw3My42NCwxMS4yMiIvPjxnIGlkPSJEaG44dVQudGlmIj48cGF0aCBjbGFzcz0iY2xzLTIiIGQ9Ik00OS4yNywxNS4xNmgxLjE1bC4xNS4wNWMuNTcuMTEsMS4xNi4xOCwxLjcyLjMzYTUuMjYsNS4yNiwwLDAsMSwzLjg1LDMuOTMsMTIuMTIsMTIuMTIsMCwwLDEsLjM3LDMuNzUsMTEuMjksMTEuMjksMCwwLDEtMSw0LjI4Yy0uMzYuODEtLjgsMS41OC0xLjE5LDIuMzctLjE3LjM2LS4zLjc0LS40NiwxLjE0aDguMzdhNS45Myw1LjkzLDAsMCwxLC45NCwwLDUuNzksNS43OSwwLDAsMSw0Ljg3LDQsNi40Nyw2LjQ3LDAsMCwxLTEuMiw2LjM2LjM5LjM5LDAsMCwwLS4wOC40MkE3LjI5LDcuMjksMCwwLDEsNjcuMTIsNDVhNi41OCw2LjU4LDAsMCwxLTEuMTgsMywuNDEuNDEsMCwwLDAtLjA3LjI4QTYsNiwwLDAsMSw2Niw1MC45MWE2LjQ1LDYuNDUsMCwwLDEtMS42OSwzLjYzLjQ4LjQ4LDAsMCwwLS4xNS40MSw5Ljc3LDkuNzcsMCwwLDEtLjEzLDIuMzUsNi4yOSw2LjI5LDAsMCwxLTIuNDEsNCw3LjcxLDcuNzEsMCwwLDEtNC40OCwxLjQ2Yy0xLjMzLDAtMi42NSwwLTQsMGEyMS41NSwyMS41NSwwLDAsMS0zLjY4LS4yNSwzNC4zLDM0LjMsMCwwLDEtNS4xMy0xLjE1Yy0yLjA3LS42Ni00LjEyLTEuMzgtNi4xOS0yYTE1LjIzLDE1LjIzLDAsMCwwLTIuNDctLjU3LDIuMjcsMi4yNywwLDAsMS0yLTIuMTJjMC01LjY0LDAtMTEuMjksMC0xNi45NCwwLS45NCwwLTEuODksMC0yLjg0QTIsMiwwLDAsMSwzNS40MywzNWExLjY4LDEuNjgsMCwwLDAsLjg3LS4zMiw3LjY1LDcuNjUsMCwwLDAsLjY5LS41NiwzNy41MywzNy41MywwLDAsMCwzLjU1LTRjMS4yMy0xLjU2LDIuNDQtMy4xMywzLjgtNC41N2E0LjUxLDQuNTEsMCwwLDAsLjY3LTEsMTMuMjcsMTMuMjcsMCwwLDAsMS4xNC0zLjc5LDExLjM3LDExLjM3LDAsMCwxLDEuMDctMy41M0EzLjMyLDMuMzIsMCwwLDEsNDkuMjcsMTUuMTZaIi8+PHBhdGggY2xhc3M9ImNscy0yIiBkPSJNMTYuODcsMzYuNjljMC0uMTMuMDctLjI2LjExLS4zOUEyLDIsMCwwLDEsMTguNzgsMzVjMS4zMiwwLDIuNjMsMCwzLjk1LDAsMS42NywwLDMuMzMsMCw1LDBhMiwyLDAsMCwxLDIsMS41MywyLjg4LDIuODgsMCwwLDEsLjA2LjU5VjU2LjY0YTIsMiwwLDAsMS0yLjExLDIuMTNIMTlhMiwyLDAsMCwxLTIuMDYtMS42OWwwLDBaTTIzLjIsNTQuOGEyLjYsMi42LDAsMCwwLDIuNjMtMi41OUEyLjYxLDIuNjEsMCwxLDAsMjMuMiw1NC44WiIvPjwvZz48L3N2Zz4=",
+      "module": "GetQueuesLocked",
       "module_name": "Xperience",
       "visible": true,
       "options": false,
