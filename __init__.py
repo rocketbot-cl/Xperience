@@ -16,6 +16,7 @@ from orchestator import OrchestatorCommon
 
 global configFormObject
 global path_ini_assetnoc_
+global verify_form
 
 module = GetParams('module')
 
@@ -32,10 +33,16 @@ if module == 'Login':
     proxies = GetParams("proxies")
     user_proxies = GetParams("user_proxies")
     pass_proxies = GetParams("pass_proxies")
+    verify_ = GetParams("verify")
 
     try:
         if not proxies:
             proxies = None
+        
+        if verify_ and eval(verify_):
+            verify_form = False
+        else:
+            verify_form = True
 
         if user_proxies and pass_proxies:
             user_proxies = urllib.parse.quote(f"{user_proxies}")
@@ -54,7 +61,7 @@ if module == 'Login':
                 token = orchestrator_service.get_authorization_token()
                 headers = {'content-type': 'application/x-www-form-urlencoded','Authorization': 'Bearer {token}'.format(token=token)}
                 res = requests.post(server_ + '/api/formData/all',
-                                    headers=headers, proxies=proxies)
+                                    headers=headers, proxies=proxies, verify=verify_form)
                 configFormObject = ConfigObject(token, orchestrator_service.server, orchestrator_service.user, orchestrator_service.password, api_key, proxies=proxies)
                 conx = True
                 SetVar(var_, conx) #type: ignore
@@ -73,7 +80,7 @@ if module == 'Login':
             token = orchestrator_service.get_authorization_token()
             headers = {'content-type': 'application/x-www-form-urlencoded','Authorization': 'Bearer {token}'.format(token=token)}
             res = requests.post(server_ + '/api/formData/all',
-                                headers=headers, proxies=proxies)
+                                headers=headers, proxies=proxies, verify=verify_form)
             configFormObject = ConfigObject(token, orchestrator_service.server, orchestrator_service.user, orchestrator_service.password, api_key, proxies=proxies)
             if res.status_code != 200:
                 exc = res.json()['message'] if res.json()['message'] else "El API Key es incorrecto"
@@ -90,7 +97,7 @@ if module == 'Login':
                 token = orchestrator_service.get_authorization_token()
                 headers = {'content-type': 'application/x-www-form-urlencoded','Authorization': 'Bearer {token}'.format(token=token)}
                 res = requests.post(server_ + '/api/formData/all',
-                                    headers=headers, proxies=proxies)
+                                    headers=headers, proxies=proxies, verify=verify_form)
                 configFormObject = ConfigObject(token, orchestrator_service.server, orchestrator_service.user, orchestrator_service.password, api_key, proxies=proxies)
                 conx = True
                 SetVar(var_, conx)
@@ -110,7 +117,7 @@ if module == 'GetForm':
 
     try:
         res = requests.post(configFormObject.server_ + '/api/formData/get/' + token_,
-                            headers={'Authorization': "Bearer " + configFormObject.token}, proxies=configFormObject.proxies)
+                            headers={'Authorization': "Bearer " + configFormObject.token}, proxies=configFormObject.proxies, verify=verify_form)
         if res.status_code == 200:
             tmp = []
             res = res.json()
@@ -138,7 +145,7 @@ if module == 'GetFormData':
             set_ = eval(set_)
 
         res = requests.post(configFormObject.server_ + '/api/formData/getQueue/' + id_ + '/' + token_,
-                            headers={'Authorization': "Bearer " + configFormObject.token}, proxies=configFormObject.proxies)
+                            headers={'Authorization': "Bearer " + configFormObject.token}, proxies=configFormObject.proxies, verify=verify_form)
         if res.status_code == 200:
             result_dict = {}
             res = res.json()
@@ -192,7 +199,7 @@ if module == 'SetStatus':
             lock = 1
         data = {'status': s, 'locked': lock}
         res = requests.post(configFormObject.server_ + '/api/formData/setStatus/' + str(id_), data=data,
-                            headers={'Authorization': "Bearer " + configFormObject.token}, proxies=configFormObject.proxies)
+                            headers={'Authorization': "Bearer " + configFormObject.token}, proxies=configFormObject.proxies, verify=verify_form)
 
         res = res.json()
         if _var:
@@ -231,7 +238,7 @@ if module == "DownloadFile":
         os.makedirs(myDirs, exist_ok=True)
 
         res = requests.post(configFormObject.server_ + '/api/formData/download/' + str(id_), data=data,
-                            headers={'Authorization': "Bearer " + configFormObject.token}, proxies=configFormObject.proxies)
+                            headers={'Authorization': "Bearer " + configFormObject.token}, proxies=configFormObject.proxies, verify=verify_form)
         if res.status_code == 200:
             with open(save_, 'wb') as ff:
                 ff.write(res.content)
@@ -250,7 +257,7 @@ if module == "setXperience":
         data = {'xperience': xperience, 'data': extradata}
 
         res = requests.post(configFormObject.server_ + '/api/form/extra', data=data,
-                            headers={'Authorization': "Bearer " + configFormObject.token}, proxies=configFormObject.proxies)
+                            headers={'Authorization': "Bearer " + configFormObject.token}, proxies=configFormObject.proxies, verify=verify_form)
 
         if res.status_code != 200:
             raise Exception('An error has occurred')
@@ -275,7 +282,7 @@ if module == "SendFile":
 
             r = requests.post(configFormObject.server_ + '/api/form/extraFile', files=files,
                             headers={'Authorization': "Bearer " + configFormObject.token}, data=data,
-                            proxies=configFormObject.proxies)
+                            proxies=configFormObject.proxies, verify=verify_form)
             
             r = r.json()
 
@@ -304,7 +311,7 @@ if module == "SearchInForm":
     try:
         result_dict = {}
         res = requests.post(configFormObject.server_ + '/api/formData/get/' + token_,
-                            headers={'Authorization': "Bearer " + configFormObject.token}, proxies=None)
+                            headers={'Authorization': "Bearer " + configFormObject.token}, proxies=None, verify=verify_form)
         if res.status_code == 200:
             tmp = []
             res = res.json()
@@ -316,7 +323,7 @@ if module == "SearchInForm":
                     tmp.append(aa)
                     # print("data", data['id'])
                     form_data = requests.post(configFormObject.server_ + '/api/formData/getQueue/' + str(data['id']) + '/' + token_,
-                                              headers={'Authorization': "Bearer " + configFormObject.token}, proxies=configFormObject.proxies)
+                                              headers={'Authorization': "Bearer " + configFormObject.token}, proxies=configFormObject.proxies, verify=verify_form)
                     
                     form_data = form_data.json()
                     
@@ -334,7 +341,7 @@ if module == "SearchInForm":
                                 if lock_form:
                                     data_lock = {'status': 0, 'locked': 1}
                                     res = requests.post(configFormObject.server_ + '/api/formData/setStatus/' + str(data['id']), data=data_lock,
-                                                        headers={'Authorization': "Bearer " + configFormObject.token}, proxies=configFormObject.proxies)
+                                                        headers={'Authorization': "Bearer " + configFormObject.token}, proxies=configFormObject.proxies, verify=verify_form)
                                 break
 
                     if break_:
@@ -367,7 +374,7 @@ if module == 'GetQueuesLocked':
         raise Exception("No token provided")
     try:
         res = requests.post(configFormObject.server_ + '/api/formData/all',
-                            headers={'Authorization': "Bearer " + configFormObject.token}, proxies=configFormObject.proxies)
+                            headers={'Authorization': "Bearer " + configFormObject.token}, proxies=configFormObject.proxies, verify=verify_form)
         
         if res.status_code == 200:
             tmp = []

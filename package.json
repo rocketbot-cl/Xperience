@@ -7,7 +7,7 @@
     "pr": "Modulo para trabalhar com formulários do Rocketbot Xperience"
   },
   "disclaimer": "THERE IS NO WARRANTY FOR THE PROGRAM, TO THE EXTENT PERMITTED BY APPLICABLE LAW. EXCEPT WHEN OTHERWISE STATED IN WRITING THE COPYRIGHT HOLDERS AND/OR OTHER PARTIES PROVIDE THE PROGRAM “AS IS” WITHOUT WARRANTY OF ANY KIND, EITHER EXPRESSED OR IMPLIED, INCLUDING, BUT NOT LIMITED TO, THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE. THE ENTIRE RISK AS TO THE QUALITY AND PERFORMANCE OF THE PROGRAM IS WITH YOU. SHOULD THE PROGRAM PROVE DEFECTIVE, YOU ASSUME THE COST OF ALL NECESSARY SERVICING, REPAIR OR CORRECTION.",
-  "version": "2.1.4",
+  "version": "2.1.5",
   "license": "MIT",
   "homepage": "http://rocketbot.com",
   "linux": true,
@@ -148,6 +148,26 @@
             },
             "remove_vars": true,
             "id": "pass_proxies",
+            "css": "col-md-6"
+          },
+          {
+            "type": "checkbox",
+            "description": {
+              "es": "Si se tilda, la solicitud enviada no verifica el certificado SSL.",
+              "en": "If checked, the submitted request does not verify the SSL certificate.",
+              "pr": "Se marcada, a solicitação enviada não verifica o certificado SSL."
+            },
+            "placeholder": {
+              "es": "",
+              "en": "",
+              "pr": ""
+            },
+            "title": {
+              "es": "No verificar certificado SSL",
+              "en": "Do not verify SSL certificate",
+              "pr": "Não verifique o certificado SSL"
+            },
+            "id": "verify",
             "css": "col-md-6"
           },
           {
