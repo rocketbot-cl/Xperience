@@ -28,6 +28,7 @@ Inicie sesión en NOC utilizando unda de las opciones, API Key, archivo noc.ini 
 |Proxies|Proxies con los que se configurará la sesión. Indicar el protocolo seguido del servidor|http://00.00.000.000:0000|
 |Usuario proxie|Opcional. Completar si se requiere configurar proxies.|user/user|
 |Contraseña proxie|Opcional. Completar si se requiere configurar proxies.|#Aa000000.Aa0000000a#|
+|No verificar certificado SSL|Si se tilda, la solicitud enviada no verifica el certificado SSL.||
 |Asignar resultado a Variable|Variable donde se almacenara el estado de la conexion, devuelve True si es exitosa o False en el caso contrario|Variable|
 
 ### Obtener cola de trabajo de Forms

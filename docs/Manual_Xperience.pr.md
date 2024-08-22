@@ -28,6 +28,7 @@ Faça login no NOC usando uma das opções, arquivo noc.ini, API Key ou credenci
 |Proxies|Proxies com os que se configurará a sessão. Indique o protocolo seguido do servidor|http://00.00.000.000:0000|
 |Usuario proxie|Opcional. Completar se requirirá configurar proxies.|user/user|
 |Contraseña proxie|Opcional. Completar se requiriere configurar proxies.|#Aa000000.Aa0000000a#|
+|Não verifique o certificado SSL|Se marcada, a solicitação enviada não verifica o certificado SSL.||
 |Atribuir resultado à variável|Variável onde será armazenado o estado da conexão, retorna True se for bem sucedida ou False caso contrário|Variable|
 
 ### Obter fila de trabalho de Formulários
