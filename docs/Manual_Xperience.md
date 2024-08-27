@@ -28,6 +28,7 @@ Login to NOC using one of the options, API Key, noc.ini file, or credentials.
 |Proxies|Proxies with which the session will be configured. Indicate the protocol followed by the server|http://00.00.000.000:0000|
 |User proxie|Optional. Complete if required to configure proxies.|user/user|
 |Password proxie|Optional. Complete if required to configure proxies.|#Aa000000.Aa0000000a#|
+|Do not verify SSL certificate|If checked, the submitted request does not verify the SSL certificate.||
 |Assign result to a Variable|Variable where the state of the connection will be stored, returns True if it is successful or False otherwise|Variable|
 
 ### Get Form queue
