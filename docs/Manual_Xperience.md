@@ -104,3 +104,12 @@ This command allows you to search for data in an Xperience form
 |Lock form queue|The form queue will be locked in the Orchestrator|True|
 |Assign results to variable|Variable to store result without {}|var|
 |Set id of the form queue to variable|Variable to store id of the form queue|var|
+
+### Get all queues forms by date
+  
+Gets the queues of all forms that are in the indicated date range
+|Parameters|Description|example|
+| --- | --- | --- |
+|From date |Required. Date format YYYY-MM-DD|2024-01-01|
+|To date |Required. Date format YYYY-MM-DD|2024-01-01|
+|Set to var|Variable to store result without {}|var|

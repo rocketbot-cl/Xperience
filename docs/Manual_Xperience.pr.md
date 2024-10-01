@@ -104,3 +104,12 @@ Este comando permite pesquisar dados em um formulário Xperience
 |Bloquear fila do formulário|A fila do formulário será bloqueada no Orquestrador|True|
 |Atribuir resultados à variável|Variável para guardar resultado sem {}|var|
 |Definir id da fila do formulário para variável|Variável para armazenar id da fila do formulário|var|
+
+### Obter todos os dados de filas de trabalho pelo rango de datas
+  
+Obtém as filas de trabalho de todos os formulários que estão no intervalo de datas indicado
+|Parâmetros|Descrição|exemplo|
+| --- | --- | --- |
+|De data |Obrigatório. Formato de data AAAA-MM-DD|2024-01-01|
+|A data |Obrigatório. Formato de data AAAA-MM-DD|2024-01-01|
+|Definir como variável|Variável para guardar resultado sem {}|var|

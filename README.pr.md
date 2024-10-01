@@ -43,7 +43,10 @@ Returns a message to the Xperience form
 Enviar um arquivo sempre que a opção SEND API do formulário estiver ativa
 
 9. Pesquisar dados no formulário  
-Este comando permite pesquisar dados em um formulário Xperience  
+Este comando permite pesquisar dados em um formulário Xperience
+
+10. Obter todos os dados de filas de trabalho pelo rango de datas  
+Obtém as filas de trabalho de todos os formulários que estão no intervalo de datas indicado  
 
 
 

@@ -393,3 +393,24 @@ if module == 'GetQueuesLocked':
     except Exception as e:
         PrintException()
         raise e
+
+if module == 'GetAllQueues':
+    var_ = GetParams('result')
+    from_ = GetParams('from_')
+    to_ = GetParams('to_')
+
+    try:
+        data = {"from": from_, "to": to_}
+        queue_res = requests.post(configFormObject.server_ + '/api/formData/all', data=data,
+                                headers={'Authorization': "Bearer " + configFormObject.token}, proxies=configFormObject.proxies, verify=verify_form)
+        print(queue_res.status_code)
+        if queue_res.status_code == 200:
+            if isinstance(queue_res, requests.models.Response):
+                queue_res = queue_res.json()
+            SetVar(var_, queue_res['data'])
+        else:
+            raise Exception(queue_res['message'])
+        
+    except Exception as e:
+        PrintException()
+        raise e

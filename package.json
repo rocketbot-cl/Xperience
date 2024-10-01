@@ -7,7 +7,7 @@
     "pr": "Modulo para trabalhar com formulários do Rocketbot Xperience"
   },
   "disclaimer": "THERE IS NO WARRANTY FOR THE PROGRAM, TO THE EXTENT PERMITTED BY APPLICABLE LAW. EXCEPT WHEN OTHERWISE STATED IN WRITING THE COPYRIGHT HOLDERS AND/OR OTHER PARTIES PROVIDE THE PROGRAM “AS IS” WITHOUT WARRANTY OF ANY KIND, EITHER EXPRESSED OR IMPLIED, INCLUDING, BUT NOT LIMITED TO, THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE. THE ENTIRE RISK AS TO THE QUALITY AND PERFORMANCE OF THE PROGRAM IS WITH YOU. SHOULD THE PROGRAM PROVE DEFECTIVE, YOU ASSUME THE COST OF ALL NECESSARY SERVICING, REPAIR OR CORRECTION.",
-  "version": "2.1.5",
+  "version": "2.2.5",
   "license": "MIT",
   "homepage": "http://rocketbot.com",
   "linux": true,
@@ -1033,6 +1033,114 @@
           "windows": true,
           "mac": true,
           "docker": true
+    },
+    {
+      "en": {
+        "title": "Get all queues",
+        "description": "Gets the queues of all forms that are in the indicated date range",
+        "title_options": "Select Option",
+        "options": null
+      },
+      "es": {
+        "title": "Obtener todas las queues",
+        "description": "Obtiene las colas de trabajo de todos los formularios que estén en el rango de fecha indicado",
+        "title_options": "Seleccione una opción",
+        "options": null
+      },
+      "pr": {
+        "title": "Obter todas as filas de trabalho",
+        "description": "Obtém as filas de trabalho de todos os formulários que estão no intervalo de datas indicado",
+        "title_options": "Selecione uma opção",
+        "options": null
+      },
+      "form": {
+        "css": "modal-lg",
+        "inputs": [
+          {
+            "type": "input",
+            "placeholder": {
+              "es": "2024-01-01",
+              "en": "2024-01-01",
+              "pr": "2024-01-01"
+            },
+            "description": {
+              "es": "Obligatorio. Formato de fecha: AAAA-MM-DD",
+              "en": "Required. Date format: YYYY-MM-DD",
+              "pr": "Obrigatório. Formato de data: AAAA-MM-DD"
+            },
+            "title": {
+              "es": "Desde fecha: ",
+              "en": "From date: ",
+              "pr": "De data: "
+            },
+            "help": {
+              "es": "Fecha de comienzo de búsqueda para obtener los datos de queues",
+              "en": "Search start date to obtain queue data",
+              "pr": "Data de início da pesquisa para obter dados da fila"
+            },
+            "id": "from_",
+            "css": "col-md-6"
+          },
+          {
+            "type": "input",
+            "placeholder": {
+              "es": "2024-01-01",
+              "en": "2024-01-01",
+              "pr": "2024-01-01"
+            },
+            "description": {
+              "es": "Obligatorio. Formato de fecha: AAAA-MM-DD",
+              "en": "Required. Date format: YYYY-MM-DD",
+              "pr": "Obrigatório. Formato de data: AAAA-MM-DD"
+            },
+            "title": {
+              "es": "Hasta fecha: ",
+              "en": "To date: ",
+              "pr": "A data: "
+            },
+            "help": {
+              "es": "Fecha final de búsqueda para obtener los datos de queues",
+              "en": "End date of search to obtain queue data",
+              "pr": "Data de término da pesquisa para obter dados da fila"
+            },
+            "id": "to_",
+            "css": "col-md-6"
+          },
+          {
+            "type": "input",
+            "placeholder": {
+              "es": "var",
+              "en": "var",
+              "pr": "var"
+            },
+            "description": {
+              "en": "Variable to store result without {}",
+              "es": "Variable donde guardar resultado sin {}",
+              "pr": "Variável para guardar resultado sem {}"
+            },
+            "title": {
+              "es": "Asignar a variable",
+              "en": "Set to var",
+              "pr": "Definir como variável"
+            },
+            "remove_vars": true,
+            "id": "result",
+            "css": "col-md-6"
+          }
+        ]
+      },
+      "video_youtube": "",
+      "icon": "data:image/svg+xml;base64,PHN2ZyBpZD0iQ2FwYV8xIiBkYXRhLW5hbWU9IkNhcGEgMSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIiB2aWV3Qm94PSIwIDAgODUuMDQgODUuMDQiPjxkZWZzPjxzdHlsZT4uY2xzLTF7ZmlsbDojYmMxODFiO30uY2xzLTJ7ZmlsbDojZmZmO308L3N0eWxlPjwvZGVmcz48cGF0aCBjbGFzcz0iY2xzLTEiIGQ9Ik03My42NCwxMS4yMmMtNy02LjQ3LTE3LjQtOS43LTMxLjEyLTkuN1MxOC4zOSw0Ljc1LDExLjQsMTEuMjIuOTEsMjguMTguOTEsNDIuNjEsNC40LDY3LjM1LDExLjQsNzMuODJzMTcuMzksOS43LDMxLjEyLDkuNywyNC4xMy0zLjIzLDMxLjEyLTkuN1M4NC4xMyw1Ni45NCw4NC4xMyw0Mi42MSw4MC43MiwxNy42OSw3My42NCwxMS4yMiIvPjxnIGlkPSJEaG44dVQudGlmIj48cGF0aCBjbGFzcz0iY2xzLTIiIGQ9Ik00OS4yNywxNS4xNmgxLjE1bC4xNS4wNWMuNTcuMTEsMS4xNi4xOCwxLjcyLjMzYTUuMjYsNS4yNiwwLDAsMSwzLjg1LDMuOTMsMTIuMTIsMTIuMTIsMCwwLDEsLjM3LDMuNzUsMTEuMjksMTEuMjksMCwwLDEtMSw0LjI4Yy0uMzYuODEtLjgsMS41OC0xLjE5LDIuMzctLjE3LjM2LS4zLjc0LS40NiwxLjE0aDguMzdhNS45Myw1LjkzLDAsMCwxLC45NCwwLDUuNzksNS43OSwwLDAsMSw0Ljg3LDQsNi40Nyw2LjQ3LDAsMCwxLTEuMiw2LjM2LjM5LjM5LDAsMCwwLS4wOC40MkE3LjI5LDcuMjksMCwwLDEsNjcuMTIsNDVhNi41OCw2LjU4LDAsMCwxLTEuMTgsMywuNDEuNDEsMCwwLDAtLjA3LjI4QTYsNiwwLDAsMSw2Niw1MC45MWE2LjQ1LDYuNDUsMCwwLDEtMS42OSwzLjYzLjQ4LjQ4LDAsMCwwLS4xNS40MSw5Ljc3LDkuNzcsMCwwLDEtLjEzLDIuMzUsNi4yOSw2LjI5LDAsMCwxLTIuNDEsNCw3LjcxLDcuNzEsMCwwLDEtNC40OCwxLjQ2Yy0xLjMzLDAtMi42NSwwLTQsMGEyMS41NSwyMS41NSwwLDAsMS0zLjY4LS4yNSwzNC4zLDM0LjMsMCwwLDEtNS4xMy0xLjE1Yy0yLjA3LS42Ni00LjEyLTEuMzgtNi4xOS0yYTE1LjIzLDE1LjIzLDAsMCwwLTIuNDctLjU3LDIuMjcsMi4yNywwLDAsMS0yLTIuMTJjMC01LjY0LDAtMTEuMjksMC0xNi45NCwwLS45NCwwLTEuODksMC0yLjg0QTIsMiwwLDAsMSwzNS40MywzNWExLjY4LDEuNjgsMCwwLDAsLjg3LS4zMiw3LjY1LDcuNjUsMCwwLDAsLjY5LS41NiwzNy41MywzNy41MywwLDAsMCwzLjU1LTRjMS4yMy0xLjU2LDIuNDQtMy4xMywzLjgtNC41N2E0LjUxLDQuNTEsMCwwLDAsLjY3LTEsMTMuMjcsMTMuMjcsMCwwLDAsMS4xNC0zLjc5LDExLjM3LDExLjM3LDAsMCwxLDEuMDctMy41M0EzLjMyLDMuMzIsMCwwLDEsNDkuMjcsMTUuMTZaIi8+PHBhdGggY2xhc3M9ImNscy0yIiBkPSJNMTYuODcsMzYuNjljMC0uMTMuMDctLjI2LjExLS4zOUEyLDIsMCwwLDEsMTguNzgsMzVjMS4zMiwwLDIuNjMsMCwzLjk1LDAsMS42NywwLDMuMzMsMCw1LDBhMiwyLDAsMCwxLDIsMS41MywyLjg4LDIuODgsMCwwLDEsLjA2LjU5VjU2LjY0YTIsMiwwLDAsMS0yLjExLDIuMTNIMTlhMiwyLDAsMCwxLTIuMDYtMS42OWwwLDBaTTIzLjIsNTQuOGEyLjYsMi42LDAsMCwwLDIuNjMtMi41OUEyLjYxLDIuNjEsMCwxLDAsMjMuMiw1NC44WiIvPjwvZz48L3N2Zz4=",
+      "module": "GetAllQueues",
+      "module_name": "Xperience",
+      "visible": true,
+      "options": false,
+      "father": "module",
+      "group": "scripts",
+      "linux": true,
+      "windows": true,
+      "mac": true,
+      "docker": true
     }
   ]
 }

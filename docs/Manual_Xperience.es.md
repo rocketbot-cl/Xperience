@@ -104,3 +104,12 @@ Este comando permite buscar datos en un formulario de Xperience
 |Bloquear cola del formulario|La cola del formulario se bloqueará en el Orquestador|True|
 |Asignar resultados a variable|Variable donde guardar resultado sin {}|var|
 |Asignar id de la cola del formulario a variable|Variable donde guardar id de la cola del formulario|var|
+
+### Obtener todos los queues de un rango de fechas
+  
+Obtiene las colas de trabajo de todos los formularios que estén en el rango de fecha indicado
+|Parámetros|Descripción|ejemplo|
+| --- | --- | --- |
+|Desde fecha |Obligatorio. Formato de fecha AAAA-MM-DD|2024-01-01|
+|Hasta fecha |Obligatorio. Formato de fecha AAAA-MM-DD|2024-01-01|
+|Asignar a variable|Variable donde guardar resultado sin {}|var|
