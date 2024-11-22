@@ -45,7 +45,7 @@ Send a file whenever the Form's SEND API option is active
 9. Search data in form  
 This command allows you to search for data in an Xperience form
 
-10. Get all queues forms by date  
+10. Get all queues  
 Gets the queues of all forms that are in the indicated date range  
 
 

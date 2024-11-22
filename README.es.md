@@ -45,7 +45,7 @@ Envía un archivo siempre que esté activa la opción SEND API del Form
 9. Buscar dato en formulario  
 Este comando permite buscar datos en un formulario de Xperience
 
-10. Obtener todos los queues de un rango de fechas  
+10. Obtener todas las queues  
 Obtiene las colas de trabajo de todos los formularios que estén en el rango de fecha indicado  
 
 

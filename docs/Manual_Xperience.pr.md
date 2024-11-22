@@ -63,7 +63,7 @@ Baixe um arquivo enviado em um formulário
 |Parâmetros|Descrição|exemplo|
 | --- | --- | --- |
 |ID da fila|ID da fila|1|
-|Arquivo|Variável que contém o caminho do arquivo do formulário|arquivo.pdf|
+|Arquivo|Variável que contém o caminho do arquivo do formulário|orchestator/arquivo.ext|
 |Salvar arquivo em|Caminho onde o arquivo será salvo|C:\Rocketbot\file.ini|
 
 ### Atualizar estado da fila Form
@@ -105,7 +105,7 @@ Este comando permite pesquisar dados em um formulário Xperience
 |Atribuir resultados à variável|Variável para guardar resultado sem {}|var|
 |Definir id da fila do formulário para variável|Variável para armazenar id da fila do formulário|var|
 
-### Obter todos os dados de filas de trabalho pelo rango de datas
+### Obter todas as filas de trabalho
   
 Obtém as filas de trabalho de todos os formulários que estão no intervalo de datas indicado
 |Parâmetros|Descrição|exemplo|
