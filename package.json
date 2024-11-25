@@ -571,6 +571,11 @@
               "en": "Path where file will be saved",
               "pr": "Caminho onde o arquivo será salvo"
             },
+            "help": {
+              "es": "Debe Indicar la ruta y el nombre con el que se guardara el archivo. Ej: C:/Users/Downloads/prueba.pdf.",
+              "en": "You must specify the path and filename where the file will be saved. For example: C:/Users/Downloads/example.pdf",
+              "pr": "Você deve indicar o caminho e o nome com o qual o arquivo será salvo. Por exemplo: C:/Users/Downloads/prueba.pdf."
+          },
             "id": "save_",
             "css": "col-md-12"
           }
