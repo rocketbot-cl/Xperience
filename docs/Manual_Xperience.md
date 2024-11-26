@@ -4,112 +4,112 @@
 
 # Rocketbot Xperience
   
-Module to work with forms of Rocketbot Xperience  
+Módulo para trabajar con formularios de Rocketbot Xperience  
 
 *Read this in other languages: [English](Manual_Xperience.md), [Português](Manual_Xperience.pr.md), [Español](Manual_Xperience.es.md)*
   
 ![banner](imgs/Banner_Xperience.jpg)
-## How to install this module
+## Como instalar este módulo
   
-To install the module in Rocketbot Studio, it can be done in two ways:
-1. Manual: __Download__ the .zip file and unzip it in the modules folder. The folder name must be the same as the module and inside it must have the following files and folders: \__init__.py, package.json, docs, example and libs. If you have the application open, refresh your browser to be able to use the new module.
-2. Automatic: When entering Rocketbot Studio on the right margin you will find the **Addons** section, select **Install Mods**, search for the desired module and press install.  
+Para instalar el módulo en Rocketbot Studio, se puede hacer de dos formas:
+1. Manual: __Descargar__ el archivo .zip y descomprimirlo en la carpeta modules. El nombre de la carpeta debe ser el mismo al del módulo y dentro debe tener los siguientes archivos y carpetas: \__init__.py, package.json, docs, example y libs. Si tiene abierta la aplicación, refresca el navegador para poder utilizar el nuevo modulo.
+2. Automática: Al ingresar a Rocketbot Studio sobre el margen derecho encontrara la sección de **Addons**, seleccionar **Install Mods**, buscar el modulo deseado y presionar install.  
 
 
-## Description of the commands
+## Descripción de los comandos
 
 ### Login NOC
   
-Login to NOC using one of the options, API Key, noc.ini file, or credentials.
-|Parameters|Description|example|
+Inicie sesión en NOC utilizando unda de las opciones, API Key, archivo noc.ini o credenciales.
+|Parámetros|Descripción|ejemplo|
 | --- | --- | --- |
-|URL Server|Server URL|https://roc.myrb.io/|
-|Select a method to connect to the Orchestrator|Options to login to R.O.C, you can use user credentials, API Key or by selecting noc.ini file|API Key|
-|Proxies|Proxies with which the session will be configured. Indicate the protocol followed by the server|http://00.00.000.000:0000|
-|User proxie|Optional. Complete if required to configure proxies.|user/user|
-|Password proxie|Optional. Complete if required to configure proxies.|#Aa000000.Aa0000000a#|
-|Do not verify SSL certificate|If checked, the submitted request does not verify the SSL certificate.||
-|Assign result to a Variable|Variable where the state of the connection will be stored, returns True if it is successful or False otherwise|Variable|
+|URL Servidor|URL del servidor a donde se conecta|https://roc.myrb.io/|
+|Seleccione un metodo para conectarse al Orquestador|Opciones para iniciar sesión en R.O.C, se puede usar las credenciales del usuario, API Key o seleccionando archivo noc.ini|API Key|
+|Proxies|Proxies con los que se configurará la sesión. Indicar el protocolo seguido del servidor|http://00.00.000.000:0000|
+|Usuario proxie|Opcional. Completar si se requiere configurar proxies.|user/user|
+|Contraseña proxie|Opcional. Completar si se requiere configurar proxies.|#Aa000000.Aa0000000a#|
+|No verificar certificado SSL|Si se tilda, la solicitud enviada no verifica el certificado SSL.||
+|Asignar resultado a Variable|Variable donde se almacenara el estado de la conexion, devuelve True si es exitosa o False en el caso contrario|Variable|
 
-### Get Form queue
+### Obtener cola de trabajo de Forms
   
-Get queues
-|Parameters|Description|example|
+Obtiene las colas de trabajo
+|Parámetros|Descripción|ejemplo|
 | --- | --- | --- |
 |Form Token|Form Token|8YWUW8AXAV3UPNKY|
-|Set to var|Variable to store result without {}|var|
+|Asignar a variable|Variable donde guardar resultado sin {}|var|
 
-### Get Form queue locked
+### Obtener cola de trabajo bloqueadas de un Form
   
-Get queues locked
-|Parameters|Description|example|
+Obtiene las colas de trabajo bloqueadas
+|Parámetros|Descripción|ejemplo|
 | --- | --- | --- |
 |Form Token|Form Token|8YWUW8AXAV3UPNKY|
-|Set to var|Variable to store result without {}|var|
+|Asignar a variable|Variable donde guardar resultado sin {}|var|
 
-### Get all Form queue data
+### Obtener todos los datos de Formularios
   
-Get all Form data from queue. The command returns the data in dictionary format
-|Parameters|Description|example|
+Obtener todos los datos de formularios de la cola de trabajo. El comando devuelve los datos en formato de diccionario
+|Parámetros|Descripción|ejemplo|
 | --- | --- | --- |
-|Queue ID|Queue ID|1|
+|ID cola de trabajo|ID de la cola de trabajo|1|
+|Form Token|Token del formulario|8YWUW8AXAV3UPNKY|
+|Autocompletar variables|Se asignará el resultado a las variables ya creadas|True|
+|Asignar a variable|Variable donde guardar resultado sin {}|var|
+
+### Descarga archivo
+  
+Descarga un archivo subido a un formulario
+|Parámetros|Descripción|ejemplo|
+| --- | --- | --- |
+|ID cola de trabajo|ID de la cola de trabajo|1|
+|Archivo|Variable que tiene la ruta del archivo del formulario|orchestator/archivo.ext|
+|Guardar archivo en|Ruta donde se guardará el archivo|C:\Rocketbot\file.ini|
+
+### Actualizar estado de la cola Form
+  
+Cambia el estado de la cola
+|Parámetros|Descripción|ejemplo|
+| --- | --- | --- |
+|Estado|Seleccione el estado de la cola|Done|
+|ID cola de trabajo|Ingrese el ID de la cola de trabajo|1|
+|Asignar a variable|Nombre de variable sin {} donde se guardara el resultado|variable|
+
+### Devolver Mensaje a Xperience
+  
+Devuelve un mensaje al formulario Xperience
+|Parámetros|Descripción|ejemplo|
+| --- | --- | --- |
+|Token Xperience|Token de Xperience|{xperience}|
+|Mensaje a devolver|Mensaje a devolver|Este es un mensaje|
+
+### Envía un archivo a Xperience
+  
+Envía un archivo siempre que esté activa la opción SEND API del Form
+|Parámetros|Descripción|ejemplo|
+| --- | --- | --- |
+|Token Xperience|Token {xperience} que se genera con el comando 'Obtener datos del Form'|{xperience}|
+|Archivo a cargar|Ruta del archivo a enviar al orquestador|C:/Users/pc/Downloads/img.png|
+|Asignar a variable|Nombre de variable donde se guardara el resultado|variable|
+
+### Buscar dato en formulario
+  
+Este comando permite buscar datos en un formulario de Xperience
+|Parámetros|Descripción|ejemplo|
+| --- | --- | --- |
 |Form Token|Form Token|8YWUW8AXAV3UPNKY|
-|Autocomplete variables|The result will be assigned to the variables already created|True|
-|Set to var|Variable to store result without {}|var|
+|ID del input|ID del input a buscar|User|
+|Valor a buscar|Valor que se buscará en el input seleccionado|Rocketbot|
+|Autocompletar variables|Se asignará el resultado a las variables ya creadas|True|
+|Bloquear cola del formulario|La cola del formulario se bloqueará en el Orquestador|True|
+|Asignar resultados a variable|Variable donde guardar resultado sin {}|var|
+|Asignar id de la cola del formulario a variable|Variable donde guardar id de la cola del formulario|var|
 
-### Download Form File
+### Obtener todas las queues
   
-Download a file uploaded in a form
-|Parameters|Description|example|
+Obtiene las colas de trabajo de todos los formularios que estén en el rango de fecha indicado
+|Parámetros|Descripción|ejemplo|
 | --- | --- | --- |
-|Queue ID|Queue ID|1|
-|File|Var that contains file path of queue|file.pdf|
-|Save file to|Path where file will be saved|C:\Rocketbot\file.ini|
-
-### Update Form queue status
-  
-Change status to form queue
-|Parameters|Description|example|
-| --- | --- | --- |
-|Status|Select the status of the queue|Done|
-|Queue ID|Enter the ID of the queue|1|
-|Set to var|Var without {} where the result will be saved|variable|
-
-### Return Message to Xperience
-  
-Returns a message to the Xperience form
-|Parameters|Description|example|
-| --- | --- | --- |
-|Xperience Token|Xperience Token|{xperience}|
-|Message to return|Message to return|This is a message|
-
-### Send a file to Xperience
-  
-Send a file whenever the Form's SEND API option is active
-|Parameters|Description|example|
-| --- | --- | --- |
-|Xperience Token|Token {xperience} that is generated with the 'Get data from Form' command|{xperience}|
-|File to upload|File path to send to the orchestrator|C:/Users/pc/Downloads/img.png|
-|Set to var|Var where the result will be saved|variable|
-
-### Search data in form
-  
-This command allows you to search for data in an Xperience form
-|Parameters|Description|example|
-| --- | --- | --- |
-|Form Token|Form Token|8YWUW8AXAV3UPNKY|
-|ID of the element|ID of the element to search|User|
-|Value to search|Value to search in the selected input|Rocketbot|
-|Autocomplete variables|The result will be assigned to the variables already created|True|
-|Lock form queue|The form queue will be locked in the Orchestrator|True|
-|Assign results to variable|Variable to store result without {}|var|
-|Set id of the form queue to variable|Variable to store id of the form queue|var|
-
-### Get all queues forms by date
-  
-Gets the queues of all forms that are in the indicated date range
-|Parameters|Description|example|
-| --- | --- | --- |
-|From date |Required. Date format YYYY-MM-DD|2024-01-01|
-|To date |Required. Date format YYYY-MM-DD|2024-01-01|
-|Set to var|Variable to store result without {}|var|
+|Desde fecha |Obligatorio. Formato de fecha AAAA-MM-DD|2024-01-01|
+|Hasta fecha |Obligatorio. Formato de fecha AAAA-MM-DD|2024-01-01|
+|Asignar a variable|Variable donde guardar resultado sin {}|var|

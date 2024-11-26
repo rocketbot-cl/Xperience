@@ -7,7 +7,7 @@
     "pr": "Modulo para trabalhar com formulários do Rocketbot Xperience"
   },
   "disclaimer": "THERE IS NO WARRANTY FOR THE PROGRAM, TO THE EXTENT PERMITTED BY APPLICABLE LAW. EXCEPT WHEN OTHERWISE STATED IN WRITING THE COPYRIGHT HOLDERS AND/OR OTHER PARTIES PROVIDE THE PROGRAM “AS IS” WITHOUT WARRANTY OF ANY KIND, EITHER EXPRESSED OR IMPLIED, INCLUDING, BUT NOT LIMITED TO, THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE. THE ENTIRE RISK AS TO THE QUALITY AND PERFORMANCE OF THE PROGRAM IS WITH YOU. SHOULD THE PROGRAM PROVE DEFECTIVE, YOU ASSUME THE COST OF ALL NECESSARY SERVICING, REPAIR OR CORRECTION.",
-  "version": "2.2.5",
+  "version": "2.2.6",
   "license": "MIT",
   "homepage": "http://rocketbot.com",
   "linux": true,
@@ -532,9 +532,9 @@
           {
             "type": "input",
             "placeholder": {
-              "es": "archivo.pdf",
-              "en": "file.pdf",
-              "pr": "arquivo.pdf"
+              "es": "orchestator/archivo.ext",
+              "en": "orchestator/file.ext",
+              "pr": "orchestator/arquivo.ext"
             },
             "title": {
               "es": "Archivo",
@@ -546,6 +546,11 @@
               "en": "Var that contains file path of queue",
               "pr": "Variável que contém o caminho do arquivo do formulário"
             },
+            "help": {
+              "es": "Debe colocar el path completo como lo trae el comando 'Obtener todos los datos de Formularios de Xperience'.",
+              "en": "You must provide the full path it is returned by the 'Get all Form queue data from Xperience' command.",
+              "pr": "Você deve inserir o caminho completo como é retornado pelo comando do Xperience 'Obter todos os dados de formulário'."
+          },
             "id": "download_",
             "css": "col-md-6"
           },
@@ -566,6 +571,11 @@
               "en": "Path where file will be saved",
               "pr": "Caminho onde o arquivo será salvo"
             },
+            "help": {
+              "es": "Debe Indicar la ruta y el nombre con el que se guardara el archivo. Ej: C:/Users/Downloads/prueba.pdf.",
+              "en": "You must specify the path and filename where the file will be saved. For example: C:/Users/Downloads/example.pdf",
+              "pr": "Você deve indicar o caminho e o nome com o qual o arquivo será salvo. Por exemplo: C:/Users/Downloads/prueba.pdf."
+          },
             "id": "save_",
             "css": "col-md-12"
           }

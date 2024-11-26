@@ -73,7 +73,7 @@ if module == 'Login':
                 raise Exception("Password o E-mail incorrectos")
 
         elif api_key:
-                        
+                 
             orchestrator_service = OrchestatorCommon(server=server_, user=username, password=password, ini_path=path, apikey=api_key)
             if server_ is None:
                 server_ = orchestrator_service.server
@@ -153,10 +153,11 @@ if module == 'GetFormData':
             if 'data' in res:
 
                 data = json.loads(res['data']['data'])
+
                 if isinstance(data, dict):
                     for attr, value in data.items():
-                        if attr == 'file':
-                            value = value.split("/")[-1]
+                        #if attr == 'file':
+                            #value = value.split("/")[-1]
                         result_dict[attr] = value
                         if set_:
                             SetVar(attr, value)
