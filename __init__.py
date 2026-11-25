@@ -152,7 +152,12 @@ if module == 'GetFormData':
 
             if 'data' in res:
 
-                data = json.loads(res['data']['data'])
+                raw_data = res['data'].get('data')
+                if not raw_data or not str(raw_data).strip():
+                    print("[Xperience] Queue {} has empty data".format(id_))
+                    data = {}
+                else:
+                    data = json.loads(raw_data)
 
                 if isinstance(data, dict):
                     for attr, value in data.items():
